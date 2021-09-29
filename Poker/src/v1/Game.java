@@ -1,5 +1,6 @@
 package v1;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Game {
@@ -11,15 +12,15 @@ public class Game {
 		this.player2 = hand2;
 	}
 	
-	public Hand whoWin(){
+	public Optional<Hand> whoWin(){
 		return hauteur();
 	}
 	
 	//regle
-	public Hand hauteur(){
-		if(player1.getCard().getValue()>player2.getCard().getValue())return player1;
-		else
-			return player2;
+	public Optional<Hand> hauteur(){
+		if(player1.getCard().getValue()>player2.getCard().getValue())return Optional.of(player1);
+		else if(!(player1.getCard().getValue()>player2.getCard().getValue())) return Optional.of(player2);
+		else return Optional.empty();
 	}
 	 
 	
