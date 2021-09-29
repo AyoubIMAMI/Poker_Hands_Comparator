@@ -10,7 +10,7 @@ public class PrintPoker {
 	}
 	
 	public void win(Optional<Hand> winner) {
-		if(winner.isEmpty())System.out.println("Egalite");
+		if(!(winner.isPresent()))System.out.println("Egalite");
 		else{
 			Hand realWinner = winner.get();
 			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne !!");

@@ -18,8 +18,11 @@ public class Game {
 	
 	//regle
 	public Optional<Hand> hauteur(){
-		if(player1.getCard().getValue()>player2.getCard().getValue())return Optional.of(player1);
-		else if(!(player1.getCard().getValue()>player2.getCard().getValue())) return Optional.of(player2);
+		int scoreP1 = player1.getCard().getValue();
+		int scoreP2 = player2.getCard().getValue();
+
+		if(scoreP1 > scoreP2)return Optional.of(player1);
+		else if(scoreP2 > scoreP1) return Optional.of(player2);
 		else return Optional.empty();
 	}
 	 
