@@ -2,16 +2,18 @@ package v1;
 
 import java.util.Scanner;
 
+//this class manage the input of cards and init the game
 public class InputPoker {
 	public InputPoker(){}
 	
-	
+	//create a game
 	public Game init() {
 		Hand hand1 = new Hand("player1", promptCard());
 		Hand hand2 = new Hand("player2", promptCard());
 		return new Game(hand1, hand2);
 	}
 	
+	//catch a user input to create a card
 	public Card promptCard(){
 		Scanner myObj = new Scanner(System.in);
 	    int cardValue= 0;

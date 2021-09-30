@@ -2,21 +2,26 @@ package v1;
 
 import java.util.Optional;
 import java.util.Scanner;
-
+// A game is compose of 2 hands
 public class Game {
 	private Hand player1;
 	private Hand player2;
 	
+	//Constructor
 	public Game(Hand hand1, Hand hand2){
 		this.player1 = hand1;
 		this.player2 = hand2;
 	}
 	
+	//Check all rules to determine who is the winner
+	//Optional<Hand> because the two player are able to make a draw game (egality)
 	public Optional<Hand> whoWin(){
 		return hauteur();
 	}
 	
-	//regle
+	//rules
+	//Check if the two player card and determine which card is better
+	//Optional<Hand> because the two player are able to make a draw game when the two card are equal(egality)
 	public Optional<Hand> hauteur(){
 		int scoreP1 = player1.getCard().getValue();
 		int scoreP2 = player2.getCard().getValue();
@@ -27,7 +32,7 @@ public class Game {
 	}
 	 
 	
-
+	//accesseur
 	public Hand getPlayer1() {
 		return player1;
 	}
@@ -35,6 +40,7 @@ public class Game {
 	public Hand getPlayer2() {
 		return player2;
 	}
+	
 	
 	public String toString(){
 		return player1.toString()+" et "+ player2.toString();

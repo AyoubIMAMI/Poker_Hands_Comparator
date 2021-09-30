@@ -1,7 +1,7 @@
 package v1;
 
 import java.util.Optional;
-
+//the class that manage the output message
 public class PrintPoker {
 	private Game game;
 	
@@ -9,6 +9,7 @@ public class PrintPoker {
 		this.game=g;
 	}
 	
+	//print the winner
 	public void win(Optional<Hand> winner) {
 		if(!(winner.isPresent()))System.out.println("Egalite");
 		else{
@@ -16,7 +17,7 @@ public class PrintPoker {
 			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne !!");
 		}
 	}
-	
+	// present the game, the two players and theirs cards
 	public void start(){
 		System.out.println(game);
 		}
