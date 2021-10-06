@@ -28,7 +28,8 @@ public class Game {
 	public Optional<Hand> hauteur(){
 		ArrayList<Card> scoreP1 = player1.getCard();
 		ArrayList<Card> scoreP2 = player2.getCard();
-		for (int i=0 ; i<(player1.getCard()).size() ;i++) {
+		int i=0;
+		while (i<(player1.getCard()).size()) {
 			if (scoreP1.get(i).getValue() > scoreP2.get(i).getValue()){
 				this.whatwin=scoreP1.get(i);
 				this.howwin="la Hauteur";
@@ -39,7 +40,9 @@ public class Game {
 				this.howwin="la Hauteur";
 				return Optional.of(player2);
 				}
-			else return Optional.empty();
+			i++;
+		else
+			return Optional.empty();
 		}
 
 	}
