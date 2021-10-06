@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Game {
 	private Hand player1;
 	private Hand player2;
-	private Card whatwin;
-	private String howwin;
+	private Card whatWin;
+	private String howWin;
 
 	//Constructor
 	public Game(Hand hand1, Hand hand2){
@@ -29,23 +29,22 @@ public class Game {
 		ArrayList<Card> scoreP1 = player1.getCard();
 		ArrayList<Card> scoreP2 = player2.getCard();
 		int i=0;
-		while (i<(player1.getCard()).size()) {
-			if (scoreP1.get(i).getValue() > scoreP2.get(i).getValue()){
-				this.whatwin=scoreP1.get(i);
-				this.howwin="la Hauteur";
+		int len=(player1.getCard()).size();
+		while (i<len) {
+			if (scoreP1.get(len-i-1).getValue() > scoreP2.get(len-i-1).getValue()){
+				this.whatWin=scoreP1.get(len-i-1);
+				this.howWin="la Hauteur";
 				return Optional.of(player1);
 				}
-			else if (scoreP2.get(i).getValue() > scoreP1.get(i).getValue()){
-				this.whatwin=scoreP2.get(i);
-				this.howwin="la Hauteur";
+			else if (scoreP2.get(len-i-1).getValue() > scoreP1.get(len-i-1).getValue()){
+				this.whatWin=scoreP2.get(len-i-1);
+				this.howWin="la Hauteur";
 				return Optional.of(player2);
 				}
-			i++;
-		else
-			return Optional.empty();
+			i++;}
+		return Optional.empty();
 		}
 
-	}
 	 
 	
 	//accesseur
@@ -55,6 +54,14 @@ public class Game {
 
 	public Hand getPlayer2() {
 		return player2;
+	}
+
+	public Card getwhatWin() {
+		return whatWin;
+	}
+
+	public String gethowWin() {
+		return howWin;
 	}
 	
 	

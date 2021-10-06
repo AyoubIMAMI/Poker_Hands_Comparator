@@ -15,7 +15,7 @@ public class PrintPoker {
 		if(!(winner.isPresent()))System.out.println("Egalite");
 		else{
 			Hand realWinner = winner.get();
-			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne avec "+this.game.howwin +" avec la carte "+this.game.whatwin.getValue());
+			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne avec "+this.game.gethowWin() +" avec la carte "+this.game.getwhatWin().getValue());
 		}
 	}
 	// present the game, the two players and theirs cards
