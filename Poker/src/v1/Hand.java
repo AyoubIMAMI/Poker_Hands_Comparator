@@ -1,16 +1,17 @@
 package v1;
+import java.util.ArrayList;
 
 public class Hand {
 	private String name;
-	private Card card;
+	private ArrayList<Card> cardList = new ArrayList<Card>();
 	
-	public Hand(String name, Card aCard) {
+	public Hand(String name, ArrayList<Card> cardValue) {
 		this.name = name;
-		this.card = aCard;
+		this.cardList = cardValue;
 	}
 
-	public Card getCard() {
-		return card;
+	public ArrayList<Card> getCard() {
+		return cardList;
 	}
 	
 	public String getName() {
@@ -18,7 +19,7 @@ public class Hand {
 	}
 	
 	public String toString(){
-		return this.name +" a la carte "+ this.card.toString();
+		return this.name +" a la carte "+ this.cardList.toString();
 	}
 	
 }
