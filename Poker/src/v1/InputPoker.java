@@ -1,6 +1,8 @@
 package v1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -31,7 +33,7 @@ public class InputPoker {
 		    }
 		    allCard.add(new Card(cardValue));
 		}
-	    
+		Collections.sort(allCard);
 	    return allCard;
 	}
 }
