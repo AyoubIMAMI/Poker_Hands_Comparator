@@ -1,5 +1,6 @@
 package v1;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
 // A game is compose of 2 hands
@@ -25,21 +26,22 @@ public class Game {
 	//Check if the two player card and determine which card is better
 	//Optional<Hand> because the two player are able to make a draw game when the two card are equal(egality)
 	public Optional<Hand> hauteur(){
-		Arraylist{card} scoreP1 = player1.getCard();
-		Arraylist{card} scoreP2 = player2.getCard();
-		for (int i=0,while i<(player1.getCard()).length,i++)
-			if (scoreP1[i].getvalue > scoreP2[i].getvalue){
-				this.whatwin=scoreP1[i];
+		ArrayList<Card> scoreP1 = player1.getCard();
+		ArrayList<Card> scoreP2 = player2.getCard();
+		for (int i=0 ; i<(player1.getCard()).size() ;i++) {
+			if (scoreP1.get(i).getValue() > scoreP2.get(i).getValue()){
+				this.whatwin=scoreP1.get(i);
 				this.howwin="la Hauteur";
 				return Optional.of(player1);
 				}
-			else if (scoreP2[i] > scoreP1[i]){
-				this.whatwin=scoreP2[i];
+			else if (scoreP2.get(i).getValue() > scoreP1.get(i).getValue()){
+				this.whatwin=scoreP2.get(i);
 				this.howwin="la Hauteur";
 				return Optional.of(player2);
 				}
-
 			else return Optional.empty();
+		}
+
 	}
 	 
 	

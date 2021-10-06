@@ -1,6 +1,8 @@
 package v1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 //this class manage the input of cards and init the game
@@ -9,7 +11,6 @@ public class InputPoker {
 	
 	//create a game
 	public Game init() {
-		//add a comment
 		int nbrCarte= 2;
 		Hand hand1 = new Hand("player1", promptCard(nbrCarte));
 		Hand hand2 = new Hand("player2", promptCard(nbrCarte));
@@ -31,7 +32,6 @@ public class InputPoker {
 		    }
 		    allCard.add(new Card(cardValue));
 		}
-	    
 	    
 	    return allCard;
 	}
