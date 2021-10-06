@@ -6,7 +6,11 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="JavaSE-15" jdkType="JavaSDK" />
+=======
+    <orderEntry type="jdk" jdkName="jre" jdkType="JavaSDK" />
+>>>>>>> 108fd3e9d5113ac785857877458b7672d721b6a6
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
