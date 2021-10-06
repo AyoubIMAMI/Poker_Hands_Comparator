@@ -14,7 +14,7 @@ public class PrintPoker {
 	public void win(Optional<Hand> winner) {
 		if(!(winner.isPresent()))System.out.println("Egalite");
 		else{
-			Hand realWinner = winner.get();
+			Hand realWinner = winner.get();//winner est un optional<Hand> et .get() renvoie une Hand si optional contient une Hand
 			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne avec "+this.game.gethowWin() +" avec la carte "+this.game.getwhatWin().getValue());
 		}
 	}

@@ -22,11 +22,10 @@ public class InputPoker {
 	public ArrayList<Card> promptCard(int nbrCarte){
 		Scanner myObj = new Scanner(System.in);
 		ArrayList<Card> allCard = new ArrayList<Card>();
-		
+    	System.out.println("Entrer la valeur des cartes du joueurs:"); 
 		for(int i = 0 ; i < nbrCarte ; i++) {
 			int cardValue= 0;
 		    while(!(cardValue >0 && cardValue <14)) {
-		    	System.out.println("Entrer la valeur de la carte:"); 
 		    	cardValue = Integer.parseInt(myObj.nextLine());
 		    	if(!(cardValue >0 && cardValue <14))
 		    		System.out.println("Mauvaise valeur entree, la valeur d'une carte est comprise entre 1 et 13!");
