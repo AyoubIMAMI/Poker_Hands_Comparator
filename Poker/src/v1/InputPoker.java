@@ -8,7 +8,6 @@ import java.util.Scanner;
 //this class manage the input of cards and init the game
 public class InputPoker {
 	public InputPoker(){}
-	
 	//create a game
 	public Game init() {
 		int nbrCarte= 2;
