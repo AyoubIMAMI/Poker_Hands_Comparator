@@ -25,8 +25,8 @@ public class Game {
 	//Check if the two player card and determine which card is better
 	//Optional<Hand> because the two player are able to make a draw game when the two card are equal(egality)
 	public Optional<Hand> hauteur(){
-		int scoreP1 = player1.getCard();
-		int scoreP2 = player2.getCard();
+		Arraylist{card} scoreP1 = player1.getCard();
+		Arraylist{card} scoreP2 = player2.getCard();
 		for (int i=0,while i<(player1.getCard()).length,i++)
 			if (scoreP1[i].getvalue > scoreP2[i].getvalue){
 				this.whatwin=scoreP1[i];
