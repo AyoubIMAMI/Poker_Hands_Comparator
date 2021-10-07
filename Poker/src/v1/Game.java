@@ -1,19 +1,22 @@
 package v1;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.Scanner;
 // A game is compose of 2 hands
 public class Game {
 	private Hand player1;
 	private Hand player2;
-	private Card whatWin;
-	private String howWin;
+	private ArrayList<Card> winningCard;
+	private String winningMethod;
 
 	//Constructor
 	public Game(Hand hand1, Hand hand2){
 		this.player1 = hand1;
 		this.player2 = hand2;
+		winningCard = new ArrayList<Card>();
+		winningMethod = null;
 	}
 	
 	//Check all rules to determine who is the winner
@@ -32,20 +35,22 @@ public class Game {
 		int len=(player1.getCard()).size();
 		while (i<len) {
 			if (scoreP1.get(len-i-1).getValue() > scoreP2.get(len-i-1).getValue()){
-				this.whatWin=scoreP1.get(len-i-1);
-				this.howWin="la Hauteur";
+				this.winningCard.add(scoreP1.get(len-i-1));
+				this.winningMethod="la Hauteur";
 				return Optional.of(player1);
 				}
 			else if (scoreP2.get(len-i-1).getValue() > scoreP1.get(len-i-1).getValue()){
-				this.whatWin=scoreP2.get(len-i-1);
-				this.howWin="la Hauteur";
+				this.winningCard.add(scoreP2.get(len-i-1));
+				this.winningMethod="la Hauteur";
 				return Optional.of(player2);
 				}
-			i++;}
+			i++;
+			}
+		
 		return Optional.empty();
 		}
 
-	 
+	  
 	
 	//accesseur
 	public Hand getPlayer1() {
@@ -56,12 +61,12 @@ public class Game {
 		return player2;
 	}
 
-	public Card getwhatWin() {
-		return whatWin;
+	public ArrayList<Card> getWinningCard() {
+		return winningCard;
 	}
 
-	public String gethowWin() {
-		return howWin;
+	public String getWinningMethod() {
+		return winningMethod;
 	}
 	
 	

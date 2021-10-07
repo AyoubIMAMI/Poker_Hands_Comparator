@@ -19,7 +19,7 @@ public class Hand {
 	}
 	
 	public String toString(){
-		return this.name +" a la carte "+ this.cardList.toString();
+		return this.name +" a les carte "+ this.cardList.toString();
 	}
 	
 }

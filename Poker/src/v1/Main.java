@@ -9,6 +9,6 @@ public class Main {
 		PrintPoker printP = new PrintPoker(pGame);
 
 		printP.start();
-		printP.win(pGame.whoWin());
+		printP.win(pGame.whoWin(),pGame.getWinningMethod(), pGame.getWinningCard());
 	}
 }

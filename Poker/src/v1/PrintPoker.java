@@ -1,6 +1,8 @@
 package v1;
 
+import java.util.ArrayList;
 import java.util.Optional;
+
 //the class that manage the output message
 public class PrintPoker {
 	private Game game;
@@ -9,19 +11,30 @@ public class PrintPoker {
 		this.game=g;
 	}
 
-	
 	//print the winner
-	public void win(Optional<Hand> winner) {
-		if(!(winner.isPresent()))System.out.println("Egalite");
+	//Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte il a gagné (une seule ou plusieurs cartes)
+	public String win(Optional<Hand> winner, String winningMethode,  ArrayList<Card> winningCard) {
+		String result;
+		if(!(winner.isPresent())) {
+			result = "Egalite";
+			System.out.println(result);
+			return result;
+		}
 		else{
 			Hand realWinner = winner.get();//winner est un optional<Hand> et .get() renvoie une Hand si optional contient une Hand
-			System.out.println("Le joueur "+ realWinner.getName()+ " a gagne avec "+this.game.gethowWin() +" avec la carte "+this.game.getwhatWin().getValue());
+			if(winningCard.size() > 1)
+				result="Le joueur "+ realWinner.getName()+ " a gagne avec "+winningMethode +" et avec les cartes "+ winningCard.toString();
+			else
+				result="Le joueur "+ realWinner.getName()+ " a gagne avec "+winningMethode +" et avec la carte "+ winningCard.get(0).toString();
+			System.out.println(result);
+			return result;
 		}
 	}
 	// present the game, the two players and theirs cards
 	public void start(){
 		System.out.println(game);
-		}
+	}
+	
 }
 
 
