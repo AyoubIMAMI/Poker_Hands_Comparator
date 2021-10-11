@@ -16,7 +16,6 @@ public class Game {
 		this.player1 = hand1;
 		this.player2 = hand2;
 		winningCard = new ArrayList<Card>();
-		winningMethod = null;
 	}
 	
 	//Check all rules to determine who is the winner
