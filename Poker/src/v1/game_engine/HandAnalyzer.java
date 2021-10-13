@@ -1,10 +1,10 @@
-package v1.gameEngine;
+package v1.game_engine;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.gameClass.Card;
-import v1.gameClass.Hand;
+import v1.game_class.Card;
+import v1.game_class.Hand;
 
 public class HandAnalyzer {
 	private Hand firstHand;

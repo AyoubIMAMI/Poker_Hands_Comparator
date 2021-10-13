@@ -1,4 +1,4 @@
-package v1.gameClass;
+package v1.game_class;
 
 public class Hauteur extends Combo{
 
