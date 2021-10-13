@@ -123,7 +123,7 @@ class PrintPokerTest {
 	
 	@Test
 	void startTest(){
-		String printValue ="";
+		//String printValue ="";
 	}
 
 }
