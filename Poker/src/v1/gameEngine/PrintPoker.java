@@ -1,7 +1,11 @@
-package v1;
+package v1.gameEngine;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
+import v1.gameClass.Card;
+import v1.gameClass.Game;
+import v1.gameClass.Hand;
 
 //the class that manage the output message
 public class PrintPoker {

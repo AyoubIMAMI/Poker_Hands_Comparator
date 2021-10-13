@@ -1,4 +1,4 @@
-package v1;
+package v1.gameClass;
 import java.util.ArrayList;
 
 public class Hand {

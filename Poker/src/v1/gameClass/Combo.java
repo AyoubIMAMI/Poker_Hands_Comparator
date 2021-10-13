@@ -1,4 +1,4 @@
-package v1;
+package v1.gameClass;
 
 public abstract class Combo {
 	String name;

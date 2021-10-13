@@ -1,5 +1,9 @@
 package v1;
 
+import v1.gameClass.Game;
+import v1.gameEngine.InputPoker;
+import v1.gameEngine.PrintPoker;
+
 //main class
 public class Main {
 

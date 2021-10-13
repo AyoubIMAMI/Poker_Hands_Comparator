@@ -1,9 +1,11 @@
-package v1;
+package v1.gameClass;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.Scanner;
+
+import v1.gameEngine.HandAnalyzer;
 // A game is compose of 2 hands
 public class Game {
 	private Hand player1;

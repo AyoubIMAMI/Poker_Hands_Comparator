@@ -8,11 +8,10 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import v1.Card;
-import v1.Game;
-import v1.Hand;
-import v1.PrintPoker;
+import v1.gameClass.Card;
+import v1.gameClass.Game;
+import v1.gameClass.Hand;
+import v1.gameEngine.PrintPoker;
 
 class PrintPokerTest {
 	

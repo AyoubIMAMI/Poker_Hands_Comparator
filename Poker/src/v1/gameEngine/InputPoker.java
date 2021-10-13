@@ -1,4 +1,4 @@
-package v1;
+package v1.gameEngine;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
+import v1.gameClass.Card;
+import v1.gameClass.Game;
+import v1.gameClass.Hand;
 
 //this class manage the input of cards and init the game
 public class InputPoker {

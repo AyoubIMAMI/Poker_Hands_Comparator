@@ -1,4 +1,4 @@
-package v1;
+package v1.gameClass;
 
 public class Card implements Comparable<Card>{
 	private int value;
