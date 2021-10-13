@@ -78,6 +78,34 @@ class PrintPokerTest {
 	}
 	
 	@Test
+	void winTestRealHandTwoCards() {
+		//Initialisation d'une main
+		//------------------------------------------------
+		ArrayList<Card> listCard = new ArrayList<Card>();
+		listCard.add(new Card(5));
+		listCard.add(new Card(2));
+		listCard.add(new Card(8));
+		Hand myHand = new Hand("player", listCard);
+		
+		//Initialisation d'une Optional<Hand> qui contient myHand
+		Optional<Hand> realHand = Optional.of(myHand);
+		
+		//victory information
+		String winningMethod = "la Hauteur";
+		ArrayList<Card> winningCards = new ArrayList<Card>();
+		winningCards.add(new Card(8));
+		winningCards.add(new Card(5));
+
+
+		
+		//------------------------------------------------
+
+		//Test, textWinner contient le resultat qu'est censé renvoyé le PrintPoker
+		String textWinner = "Le joueur "+ myHand.getName()+ " a gagne avec "+ winningMethod +" et avec les cartes "+ winningCards.toString();
+		assertEquals(printer.win(realHand, winningMethod, winningCards), textWinner);
+	}
+	
+	@Test
 	void winTestEgality() {
 		
 		
