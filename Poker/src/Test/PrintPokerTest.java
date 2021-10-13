@@ -121,5 +121,10 @@ class PrintPokerTest {
 		String textWinner = "Egalite";
 		assertEquals(printer.win(realHand, winningMethod, winningCards), textWinner);
 	}
+	
+	@Test
+	void startTest(){
+		String printValue ="";
+	}
 
 }
