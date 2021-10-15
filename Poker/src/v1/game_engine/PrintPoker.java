@@ -6,6 +6,7 @@ import java.util.Optional;
 import v1.game_class.Card;
 import v1.game_class.Game;
 import v1.game_class.Hand;
+import v1.game_class.rules_class.Combo;
 
 //the class that manage the output message
 public class PrintPoker {
@@ -17,7 +18,7 @@ public class PrintPoker {
 
 	//print the winner
 	//Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte il a gagné (une seule ou plusieurs cartes)
-	public String win(Optional<Hand> winner, String winningMethode,  ArrayList<Card> winningCard) {
+	public String win(Optional<Hand> winner, Optional<ArrayList<Combo>> winnerCombo) {
 		String result;
 		if(!(winner.isPresent())) {
 			result = "Egalite";
@@ -26,7 +27,10 @@ public class PrintPoker {
 		}
 		else{
 			Hand realWinner = winner.get();//winner est un optional<Hand> et .get() renvoie une Hand si optional contient une Hand
-			if(winningCard.size() > 1)
+			ArrayList<Combo> realCombo = winnerCombo.get();
+			String  winningMethode = realCombo.get(0).getName();
+			ArrayList<Card> winningCard = realCombo.get(0).getCardOfCombo();
+			if(realCombo.get(0).getCardOfCombo().size() > 1)
 				result="Le joueur "+ realWinner.getName()+ " a gagne avec "+winningMethode +" et avec les cartes "+ winningCard.toString();
 			else
 				result="Le joueur "+ realWinner.getName()+ " a gagne avec "+winningMethode +" et avec la carte "+ winningCard.get(0).toString();

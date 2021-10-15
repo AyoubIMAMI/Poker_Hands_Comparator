@@ -1,11 +1,23 @@
 package v1.game_class.rules_class;
 
-public class Hauteur extends Combo{
+import java.util.ArrayList;
 
-	public Hauteur(String newName, int valuePriority) {
-		this.name = newName;
-		this.priorityValue = valuePriority;
+import v1.game_class.Card;
+
+public class Hauteur extends Combo{
+	int hauteurValue;
+
+	public Hauteur(Card hightestCard) {
+		this.name = "La Hauteur";
+		this.priorityValue = 1;
+		this.cardOfCombo.add(hightestCard);
+		hauteurValue = hightestCard.getValue();
 	}
+	
+	public int getHauteur() {
+		return hauteurValue;
+	}
+	
 	
 	@Override
 	public String toString() {

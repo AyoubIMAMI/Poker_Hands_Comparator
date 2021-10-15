@@ -10,7 +10,7 @@ public class Hand {
 		this.cardList = cardValue;
 	}
 
-	public ArrayList<Card> getCard() {
+	public ArrayList<Card> getCards() {
 		return cardList;
 	}
 	
