@@ -3,28 +3,29 @@ package v1.game_class;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.game_engine.HandAnalyzer;
+import v1.game_engine.HandComparator;
+
 // A game is compose of 2 hands
 public class Game {
 	private Hand player1;
 	private Hand player2;
-	private HandAnalyzer handAnalyzer;
+	private HandComparator handComparator;
 	
 
 	//Constructor
 	public Game(Hand hand1, Hand hand2){
 		this.player1 = hand1;
 		this.player2 = hand2;
-		handAnalyzer= new HandAnalyzer(this.player1, this.player2);
-	}
+		handComparator= new HandComparator(this.player1, this.player2);}
 	
 	//Check all rules to determine who is the winner
 	//Optional<Hand> because the two player are able to make a draw game (egality)
-	public Optional<Hand> whoWin(){
-		return handAnalyzer.hauteur();
+	public Optional<String> whoWin(){
+		handComparator.setWinner();
+		return(handComparator.getWinner());
 	}
 	  
-	
+
 	//accesseur
 	public Hand getPlayer1() {
 		return player1;
@@ -35,11 +36,11 @@ public class Game {
 	}
 
 	public ArrayList<Card> getWinningCard() {
-		return handAnalyzer.getWinningCard();
+		return handComparator.getWinningCard();
 	}
 
 	public String getWinningMethod() {
-		return handAnalyzer.getWinningMethod();
+		return handComparator.getWinningMethod();
 	}
 	
 	

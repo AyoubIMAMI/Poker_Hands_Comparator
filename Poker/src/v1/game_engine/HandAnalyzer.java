@@ -5,53 +5,51 @@ import java.util.Optional;
 
 import v1.game_class.Card;
 import v1.game_class.Hand;
+import v1.game_class.rules_class.Combo;
+import v1.game_class.rules_class.Hauteur;
 
-public class HandAnalyzer {
+class HandAnalyzer {
 	private Hand firstHand;
-	private Hand secondHand;
-	private ArrayList<Card> winningCard;
-	private String winningMethod;
-
+	private ArrayList<Integer> tab;
+	private ArrayList<Hauteur> combo;
 	
-	public HandAnalyzer(Hand newHand1, Hand newHand2){
+	public HandAnalyzer(Hand newHand1){
 		this.firstHand = newHand1;
-		this.secondHand = newHand2;
-		winningCard = new ArrayList<Card>();
+		this.tab=firstHand.createList();
+		this.combo=new ArrayList<>();
 	}
 	
 	//rules
-	//Check if the two player card and determine which card is better
-	//Optional<Hand> because the two player are able to make a draw game when the two card are equal(egality)
-	public Optional<Hand> hauteur(){
-		ArrayList<Card> scoreP1 = firstHand.getCard();
-		ArrayList<Card> scoreP2 = secondHand.getCard();
-		int i=0;
-		int len=(firstHand.getCard()).size();
+	//Trouve la carte la plus haute de la main
+	//Optional<Hand> parceque si la main est déjà vide elle doit pouvoir renvoyer empty.
+	private Optional<Hauteur> hauteur(){
+		int i=0,len=15,plushaute=-1;
+
 		while (i<len) {
-			if (scoreP1.get(len-i-1).getValue() > scoreP2.get(len-i-1).getValue()){
-				this.winningCard.add(scoreP1.get(len-i-1));
-				this.winningMethod="la Hauteur";
-				return Optional.of(firstHand);
-				}
-			else if (scoreP2.get(len-i-1).getValue() > scoreP1.get(len-i-1).getValue()){
-				this.winningCard.add(scoreP2.get(len-i-1));
-				this.winningMethod="la Hauteur";
-				return Optional.of(secondHand);
+			//On verifie qu'il y a une carte de valeur i
+			if (tab.get(i)>0){
+				plushaute=i;
 				}
 			i++;
 			}
-		
+		if (plushaute>0){
+		tab.set(plushaute,tab.get(plushaute)-1);
+		Hauteur hauteur =new Hauteur(plushaute);
+		return(Optional.of(hauteur));}
 		return Optional.empty();
 		}
-	
-	public ArrayList<Card> getWinningCard() {
-		return winningCard;
+
+	void analyze(){
+		int i=0;
+		Optional<Hauteur> loi=hauteur();
+		while (loi.isPresent()){
+			combo.add(i,loi.get());
+			loi=hauteur();
+			i++;
+		}
 	}
 
-	public String getWinningMethod() {
-		return winningMethod;
+	public ArrayList<Hauteur> getCombo() {
+		return combo;
 	}
-	
-	
-
 }

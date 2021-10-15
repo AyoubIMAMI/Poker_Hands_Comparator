@@ -1,12 +1,13 @@
 package v1.game_class;
 
 public class Card implements Comparable<Card>{
+	//card value
 	private int value;
-	
+	//constructor
 	public Card(int v) {
 		this.value = v;
 	}
-
+	//return the value of the card
 	public int getValue() {
 		return value;
 	}
