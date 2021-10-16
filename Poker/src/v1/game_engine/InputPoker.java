@@ -39,21 +39,21 @@ public class InputPoker {
 		    	System.out.print("card value: ");
 
 		    	if(!(myObj.hasNextInt())){
-		    		printError();
+		    		printErrorValue();
 		    		myObj.next();
 		    	}
 
 		    	else {
 		    		cardValue = myObj.nextInt();
 		    		if(!(cardValue >0 && cardValue <14)) {
-			    		printError();
+			    		printErrorValue();
 			    	}
 		    	}
 	    	}
 
 			System.out.println("Entrer la couleur de cette carte :");
 			while(!(myObjC.hasNext("Pi") || myObjC.hasNext("Ca") ||myObjC.hasNext("Co") ||myObjC.hasNext("Tr"))){
-				printError();
+				printErrorColor();
 				myObjC.next();
 			}
 			String cardColor = myObjC.next();
@@ -65,7 +65,15 @@ public class InputPoker {
 	    return allCard;
 	}
 	
-	private void printError() {
+	private void printErrorValue() {
+		System.out.println("");
 		System.out.println("Mauvaise valeur entree, la valeur d'une carte est comprise entre 1 et 13!");
+		System.out.println("");
+	}
+
+	private void printErrorColor() {
+		System.out.println("");
+		System.out.println("Mauvaise couleur entree, elle doit etre l'une des suivantes : Pi, Ca, Co, Tr");
+		System.out.println("");
 	}
 }
