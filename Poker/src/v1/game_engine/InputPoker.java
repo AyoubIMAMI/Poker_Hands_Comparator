@@ -30,7 +30,7 @@ public class InputPoker {
 		Scanner myObj = new Scanner(System.in);
 		Scanner myObjC = new Scanner(System.in);
 
-    	System.out.println("Entrer la valeur des cartes du joueurs:");
+    	System.out.println("Entrer la valeur puis la coulaur des cartes du joueurs:");
 
 		for(int i = 0 ; i < nbrCarte ; i++) {
 			int cardValue= 0;
@@ -51,10 +51,12 @@ public class InputPoker {
 		    	}
 	    	}
 
-			System.out.println("Entrer la couleur de cette carte :");
+			System.out.println("Card color:");
 			while(!(myObjC.hasNext("Pi") || myObjC.hasNext("Ca") ||myObjC.hasNext("Co") ||myObjC.hasNext("Tr"))){
 				printErrorColor();
+				System.out.println("Card color:");
 				myObjC.next();
+
 			}
 			String cardColor = myObjC.next();
 
@@ -68,12 +70,10 @@ public class InputPoker {
 	private void printErrorValue() {
 		System.out.println("");
 		System.out.println("Mauvaise valeur entree, la valeur d'une carte est comprise entre 1 et 13!");
-		System.out.println("");
 	}
 
 	private void printErrorColor() {
 		System.out.println("");
 		System.out.println("Mauvaise couleur entree, elle doit etre l'une des suivantes : Pi, Ca, Co, Tr");
-		System.out.println("");
 	}
 }
