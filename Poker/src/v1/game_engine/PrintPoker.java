@@ -18,7 +18,7 @@ public class PrintPoker {
 
 	//print the winner
 	//Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte il a gagné (une seule ou plusieurs cartes)
-	public String win(Optional<Hand> winner, Optional<ArrayList<Combo>> winnerCombo) {
+	public String win(Optional<Hand> winner) {
 		String result;
 		if(!(winner.isPresent())) {
 			result = "Egalite";
@@ -27,7 +27,7 @@ public class PrintPoker {
 		}
 		else{
 			Hand realWinner = winner.get();//winner est un optional<Hand> et .get() renvoie une Hand si optional contient une Hand
-			ArrayList<Combo> realCombo = winnerCombo.get();
+			ArrayList<Combo> realCombo = realWinner.getComboOfThePlayer();
 			String  winningMethode = realCombo.get(0).getName();
 			ArrayList<Card> winningCard = realCombo.get(0).getCardOfCombo();
 			if(realCombo.get(0).getCardOfCombo().size() > 1)

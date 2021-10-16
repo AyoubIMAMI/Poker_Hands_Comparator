@@ -1,12 +1,8 @@
 package v1.game_engine;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Optional;
 
 import v1.game_class.Card;
-import v1.game_class.Hand;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
 
@@ -16,8 +12,7 @@ public class HandAnalyzer {
 	private int[] countCardArray  = new int[nbrCarte];
 
 	
-	public HandAnalyzer() {
-	}
+	public HandAnalyzer() {}
 	
 	
 	private void genTab(){
@@ -59,19 +54,24 @@ public class HandAnalyzer {
 	}
 	
 	private Card findHightValueOfCards() {
-		Card hightestCard = this.listCards.get(0);
-		for(int i = 0 ; i < this.listCards.size() ; i++) {
-			Card currentLoopCard = this.listCards.get(i);
-			if(currentLoopCard.getValue() > hightestCard.getValue()) hightestCard = this.listCards.get(i);
-		}
+		Card hightestCard = this.listCards.get(this.listCards.size()-1); // because the cards are sort
 		return hightestCard;
 	}
 	
+	
+	/*private Card findHightValueOfCardsV2() {
+	Card hightestCard = this.listCards.get(0);
+	for(int i = 0 ; i < this.listCards.size() ; i++) {
+		Card currentLoopCard = this.listCards.get(i);
+		if(currentLoopCard.getValue() > hightestCard.getValue()) hightestCard = this.listCards.get(i);
+	}
+	return hightestCard;
+}*/
 	//------------------------------------------------------------
 
 	
 	//loop on a arrayList of cards, compare i and i++, with i in 0 between size(list)-1
-	private void checkColor() {}
+	//private void checkColor() {}
 	
 
 	@Override

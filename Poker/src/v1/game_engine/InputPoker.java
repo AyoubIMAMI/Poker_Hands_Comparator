@@ -21,6 +21,7 @@ public class InputPoker {
 	
 	//catch a user input to create a card
 	// accept only numbers between 1 and 13 and only numbers no strings
+	@SuppressWarnings("resource")
 	public ArrayList<Card> promptCard(int nbrCarte){
 		ArrayList<Card> allCard = new ArrayList<Card>();
 		Scanner myObj = new Scanner(System.in);
