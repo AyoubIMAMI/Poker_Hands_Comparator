@@ -10,7 +10,9 @@ import v1.game_class.Hand;
 
 //this class manage the input of cards and init the game
 public class InputPoker {
+
 	public InputPoker(){}
+
 	//create a game
 	public Game init() {
 		int nbrCarte= 2;
@@ -23,17 +25,24 @@ public class InputPoker {
 	// accept only numbers between 1 and 13 and only numbers no strings
 	@SuppressWarnings("resource")
 	public ArrayList<Card> promptCard(int nbrCarte){
+
 		ArrayList<Card> allCard = new ArrayList<Card>();
 		Scanner myObj = new Scanner(System.in);
-    	System.out.println("Entrer la valeur des cartes du joueurs:"); 
+		Scanner myObjC = new Scanner(System.in);
+
+    	System.out.println("Entrer la valeur des cartes du joueurs:");
+
 		for(int i = 0 ; i < nbrCarte ; i++) {
 			int cardValue= 0;
 		    while(!(cardValue >0 && cardValue <14)) {
-		    	System.out.print("card: ");
+
+		    	System.out.print("card value: ");
+
 		    	if(!(myObj.hasNextInt())){
 		    		printError();
 		    		myObj.next();
 		    	}
+
 		    	else {
 		    		cardValue = myObj.nextInt();
 		    		if(!(cardValue >0 && cardValue <14)) {
@@ -41,7 +50,15 @@ public class InputPoker {
 			    	}
 		    	}
 	    	}
-		    allCard.add(new Card(cardValue));
+
+			System.out.println("Entrer la couleur de cette carte :");
+			while(!(myObjC.hasNext("Pi") || myObjC.hasNext("Ca") ||myObjC.hasNext("Co") ||myObjC.hasNext("Tr"))){
+				printError();
+				myObjC.next();
+			}
+			String cardColor = myObjC.next();
+
+			allCard.add(new Card(cardValue, cardColor));
 		}
     	System.out.println(""); // \n
 		Collections.sort(allCard);
