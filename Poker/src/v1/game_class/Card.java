@@ -1,10 +1,12 @@
 package v1.game_class;
 
 public class Card implements Comparable<Card>{
-	private int value;
+	private final int value;
+	private final String color; //Tr Ca Co Pi
 	
-	public Card(int v) {
-		this.value = v;
+	public Card(int newValue) {
+		this.value = newValue;
+		this.color = "Co";
 	}
 
 	public int getValue() {
@@ -12,7 +14,7 @@ public class Card implements Comparable<Card>{
 	}
 	
 	public String toString(){
-		return String.valueOf(this.value);
+		return String.valueOf(this.value) + " " + this.color;
 		}
 
 	@Override
