@@ -7,10 +7,11 @@ import v1.game_class.Card;
 public abstract class Combo {
 	String name;
 	int priorityValue;
+	int comboValue;
 	ArrayList<Card> cardOfCombo = new ArrayList<Card>();
 	
 	public abstract String toString();
-	
+
 	public ArrayList<Card> getCardOfCombo(){
 		return cardOfCombo;
 	}
@@ -18,9 +19,11 @@ public abstract class Combo {
 	public String getName() {
 		return name;
 	}
-
 	public int getPriorityValue() {
 		return priorityValue;
+	}
+	public int getComboValue() {
+		return comboValue;
 	}
 	
 }

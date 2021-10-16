@@ -1,10 +1,12 @@
 package v1.game_engine;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import v1.game_class.Card;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
+import v1.game_class.rules_class.Paire;
 
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
@@ -31,12 +33,17 @@ public class HandAnalyzer {
 
 		//boucle qui cherche les combo, inactive car seul l hauteur a pour l'instant été implémenté
 		//for(int i = 0 ; i < countCardArray.length-1 ; i++) {}
-		Hauteur theHauteur = new Hauteur(findHightValueOfCards());
-		allCombo.add(theHauteur);
-		
+		Optional<ArrayList<Card>> paire=findPaireValueOfCards();
+		if (paire.isPresent()){
+		Paire thePaire = new Paire(paire.get());
+		allCombo.add (thePaire);}
+		Optional<Card> hauteur=findHightValueOfCards();
+		if (hauteur.isPresent()){
+		Hauteur theHauteur = new Hauteur(findHightValueOfCards().get());
+		allCombo.add(theHauteur);}
 		return allCombo;
 	}
-	
+
 	//------------------------------------------------------------
 	private int[] fillTabWith0(int [] tab) {
 		for(int i = 0 ; i < tab.length ; i++ )
@@ -46,19 +53,38 @@ public class HandAnalyzer {
 
 	private String printIntTab(int[] tab) {
 		String tabString= "[";
-		int sizeOfTab = tab.length; 
+		int sizeOfTab = tab.length;
 		for(int i = 0 ; i < tab.length-1 ; i++)
 			tabString+=tab[i]+", ";
 		tabString+= tab[sizeOfTab-1]+" ]";
 		return tabString;
 	}
-	
-	private Card findHightValueOfCards() {
-		Card hightestCard = this.listCards.get(this.listCards.size()-1); // because the cards are sort
+
+	private Optional<Card> findHightValueOfCards() {
+		Optional <Card> hightestCard=Optional.empty();
+		if (listCards.size()>0) {
+			hightestCard = Optional.of(this.listCards.get(this.listCards.size() - 1));// because the cards are sort
+		}
 		return hightestCard;
 	}
-	
-	
+	//Cherche si il y a une Paire puis la retire
+	private Optional <ArrayList<Card>> findPaireValueOfCards(){
+		Optional <ArrayList<Card>> paire=Optional.empty();
+		for (int i=0;i<listCards.size()-1;i++){
+			if (listCards.get(i).getValue()==listCards.get(i+1).getValue()){
+				ArrayList<Card> laPaire= new ArrayList<>();
+				laPaire.add(listCards.get(i));
+				laPaire.add(listCards.get(i+1));
+				paire=Optional.of(laPaire);
+				listCards.remove(i+1);
+				listCards.remove(i);
+				return(paire);
+			}
+		}
+		return(paire);
+	}
+
+
 	/*private Card findHightValueOfCardsV2() {
 	Card hightestCard = this.listCards.get(0);
 	for(int i = 0 ; i < this.listCards.size() ; i++) {
@@ -69,18 +95,18 @@ public class HandAnalyzer {
 }*/
 	//------------------------------------------------------------
 
-	
+
 	//loop on a arrayList of cards, compare i and i++, with i in 0 between size(list)-1
 	//private void checkColor() {}
-	
+
 
 	@Override
 	public String toString() {
 		return "HandAnalyzer [listCards=" + listCards + ", countCardArray=" + printIntTab(countCardArray) + "]";
 	}
-	
-	
-	
+
+
+
 }
 	/*
 	private Hand firstHand;

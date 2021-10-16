@@ -9,8 +9,6 @@ public class Hand {
 	private ArrayList<Card> cardList = new ArrayList<Card>();
 	private ArrayList<Combo> comboOfThePlayer = new ArrayList<Combo>();
 	private HandAnalyzer handAnalyzerOfPlayer = new HandAnalyzer();
-
-
 	
 	public Hand(String name, ArrayList<Card> cardValue) {
 		this.name = name;
@@ -37,7 +35,7 @@ public class Hand {
 	public HandAnalyzer getHandAnalyzerOfPlayer() {
 		return handAnalyzerOfPlayer;
 	}
-	
-	
-	
+
+
+
 }

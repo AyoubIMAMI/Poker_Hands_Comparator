@@ -3,18 +3,14 @@ package v1.game_class.rules_class;
 import v1.game_class.Card;
 
 public class Hauteur extends Combo{
-	int hauteurValue;
 
 	public Hauteur(Card hightestCard) {
 		this.name = "La Hauteur";
-		this.priorityValue = 1;
+		this.priorityValue = 2;
 		this.cardOfCombo.add(hightestCard);
-		hauteurValue = hightestCard.getValue();
+		this.comboValue = hightestCard.getValue();
 	}
-	
-	public int getHauteur() {
-		return hauteurValue;
-	}
+
 	
 	
 	@Override
