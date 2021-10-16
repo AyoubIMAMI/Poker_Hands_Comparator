@@ -12,6 +12,8 @@ public class Card implements Comparable<Card>{
 	public int getValue() {
 		return value;
 	}
+
+	public String getColor() {return color;}
 	
 	public String toString(){
 		return String.valueOf(this.value) + " " + this.color;
