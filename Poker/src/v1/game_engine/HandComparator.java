@@ -16,12 +16,17 @@ public class HandComparator {
 	}
 
 	public Optional<Hand> getWinner() {
-		Optional<Hand> winner = null;
+		Optional<Hand> winner = checkHauteur();
+		return winner;
+	}
+
+	private  Optional<Hand> checkHauteur() {
+		Optional<Hand> winner = Optional.empty();
 		Hauteur player1Hauteur = (Hauteur) player1.getComboOfThePlayer().get(hauteurIndex);
 		Hauteur player2Hauteur = (Hauteur) player2.getComboOfThePlayer().get(hauteurIndex);
 
 		if (player1Hauteur.getHauteur() > player2Hauteur.getHauteur()) {
-			return winner.of(player1); 
+			return winner.of(player1);
 		} else if (player1Hauteur.getHauteur() == player2Hauteur.getHauteur()) {
 			return winner.empty();
 		}
