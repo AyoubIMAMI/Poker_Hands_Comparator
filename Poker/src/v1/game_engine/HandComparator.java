@@ -29,13 +29,8 @@ public class HandComparator {
 			int comboP1 = tabComboP1.get(i).getPriorityValue();
 			int comboP2 = tabComboP2.get(i).getPriorityValue();
 			if (comboP1 == comboP2) {
-				if (comboP1 == 1) {
-					winner = checkPaire(i);
+					winner = checkCombo(i);
 					winningComboIndex = i;
-				} else if (comboP1 == 2) {
-					winner = checkHauteur(i);
-					winningComboIndex = i;
-				}
 			} else if (comboP1 < comboP2) {
 				winner=Optional.of(player1);
 				winningComboIndex = i;
@@ -51,21 +46,11 @@ public class HandComparator {
 		return(winner);
 	}
 
-	private  Optional<Hand> checkHauteur(int hauteurIndex) {
-		Optional<Hand> winner = Optional.empty();
-		Hauteur player1Hauteur = (Hauteur) player1.getComboOfThePlayer().get(hauteurIndex);
-		Hauteur player2Hauteur = (Hauteur) player2.getComboOfThePlayer().get(hauteurIndex);
-		return(checkCombo(player1Hauteur.getComboValue(),player2Hauteur.getComboValue()));
-	}
-	private Optional<Hand> checkPaire(int PaireIndex){
-		Optional<Hand> winner = Optional.empty();
-		Paire player1Paire=(Paire) player1.getComboOfThePlayer().get(PaireIndex);
-		Paire player2Paire=(Paire) player2.getComboOfThePlayer().get(PaireIndex);
-		return(checkCombo(player1Paire.getComboValue(),player2Paire.getComboValue()));
-	}
 
-	private Optional<Hand> checkCombo(int p1ComboValue,int p2ComboValue){
+	private Optional<Hand> checkCombo(int ComboIndex){
 		Optional<Hand> winner = Optional.empty();
+		int p1ComboValue=player1.getComboOfThePlayer().get(ComboIndex).getComboValue();
+		int p2ComboValue=player2.getComboOfThePlayer().get(ComboIndex).getComboValue();
 		if (p1ComboValue > p2ComboValue) {
 			return winner.of(player1);
 		} else if (p1ComboValue == p2ComboValue) {
