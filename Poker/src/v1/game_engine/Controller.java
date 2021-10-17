@@ -15,6 +15,7 @@ public class Controller {
 		inputP = new InputPoker();
 		pGame = inputP.init();
 		printP = new PrintPoker(pGame);
+		printP.start();
 
 	}
 	
