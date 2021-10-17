@@ -54,6 +54,7 @@ public class HandComparator {
 		if (p1ComboValue > p2ComboValue) {
 			return winner.of(player1);
 		} else if (p1ComboValue == p2ComboValue) {
+			
 			return winner.empty();
 		}
 		else {

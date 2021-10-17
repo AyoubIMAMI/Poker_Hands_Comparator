@@ -23,7 +23,7 @@ public class Game {
 	}
 	
 	public String toString(){
-		return player1.toString()+" et "+ player2.toString();
+		return player1.toString()+" et "+ player2.toString(); 
 	}
 	
 	

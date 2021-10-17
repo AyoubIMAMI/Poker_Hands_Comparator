@@ -26,7 +26,7 @@ public class HandAnalyzer {
 		}
 	}
 	
-	public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
+	public ArrayList<Combo> getComboList(ArrayList<Card> cards) {
 		this.listCards=cards;
 		ArrayList<Combo> allCombo = new ArrayList<Combo>();
 		genTab();
@@ -96,6 +96,39 @@ public class HandAnalyzer {
 		}
 		return Optional.empty();
 	}
+	
+	
+	
+	public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
+		this.listCards=cards;
+		genTab();
+		
+		ArrayList<Combo> comboList= new ArrayList<Combo>();
+		
+		for(int i = countCardArray.length-1 ; i > 0 ; i--) {
+			Optional<Combo> combo = findType1(countCardArray[i], i);
+			if(combo.isPresent())
+				comboList.add(combo.get());
+		}
+		
+		return comboList;
+	}
+	
+	
+	private Optional<Combo> findType1(int numberOfaCard, int valueOfCard) {
+		switch (numberOfaCard)
+		{
+		     case 2:
+		    	return Optional.of(new Paire(findCards(valueOfCard)));
+		    	
+		     case 3:
+		    	 return Optional.of(new Brelan(findCards(valueOfCard)));
+			    
+		     default:
+		     	return Optional.empty();
+		}
+	}
+	
 
 	//Cherche si il y a une Paire puis la retire
 	/*
@@ -116,8 +149,12 @@ public class HandAnalyzer {
 	}
 	 */
 
+
+
+
 	private Optional <ArrayList<Card>> findBrelanValueOfCards() {
-	
+		
+
 		for (int i = countCardArray.length - 1; i != 0; i--) {
 			if (countCardArray[i] == 3) {
 				return Optional.of(findCards(i));

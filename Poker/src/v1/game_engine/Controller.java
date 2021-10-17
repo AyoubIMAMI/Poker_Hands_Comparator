@@ -8,9 +8,9 @@ public class Controller {
 	private PrintPoker printP;
 	private InputPoker inputP;
 	
-	public Controller(){}
+	public Controller(){} 
 	
-	
+	 
 	public void initGame() {
 		inputP = new InputPoker();
 		pGame = inputP.init();
