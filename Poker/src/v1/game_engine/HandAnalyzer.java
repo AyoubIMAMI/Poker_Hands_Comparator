@@ -84,6 +84,13 @@ public class HandAnalyzer {
 		return(paire);
 	}
 
+	private Optional <ArrayList<Card>> findBrelanValueOfCards() {
+		Optional <ArrayList<Card>> brelan = Optional.empty();
+		for(Integer index : countCardArray){
+			if (countCardArray[index] == 3) return brelan;
+		}
+		return brelan;
+	}
 
 	/*private Card findHightValueOfCardsV2() {
 	Card hightestCard = this.listCards.get(0);
