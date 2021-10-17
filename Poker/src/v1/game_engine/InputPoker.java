@@ -15,7 +15,7 @@ public class InputPoker {
 
 	//create a game
 	public Game init() {
-		int nbrCarte= 2;
+		int nbrCarte= 3;
 		Hand hand1 = new Hand("player1", promptCard(nbrCarte));
 		Hand hand2 = new Hand("player2", promptCard(nbrCarte));
 		return new Game(hand1, hand2);
