@@ -86,7 +86,19 @@ public class HandAnalyzer {
 		}
 		return hightestCard;
 	}
+	//Cherche si il y a une Pair
+	private Optional <ArrayList<Card>> findPaireValueOfCards() {
+
+		for (int i = countCardArray.length - 1; i != 0; i--) {
+			if (countCardArray[i] == 2) {
+				return Optional.of(findCards(i));
+			}
+		}
+		return Optional.empty();
+	}
+
 	//Cherche si il y a une Paire puis la retire
+	/*
 	private Optional <ArrayList<Card>> findPaireValueOfCards(){
 		Optional <ArrayList<Card>> paire=Optional.empty();
 		for (int i=0;i<listCards.size()-1;i++){
@@ -102,6 +114,7 @@ public class HandAnalyzer {
 		}
 		return(paire);
 	}
+	 */
 
 	private Optional <ArrayList<Card>> findBrelanValueOfCards() {
 
