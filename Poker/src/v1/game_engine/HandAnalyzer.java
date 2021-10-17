@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import v1.game_class.Card;
+import v1.game_class.rules_class.Brelan;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
 import v1.game_class.rules_class.Paire;
@@ -33,6 +34,12 @@ public class HandAnalyzer {
 
 		//boucle qui cherche les combo, inactive car seul l hauteur a pour l'instant été implémenté
 		//for(int i = 0 ; i < countCardArray.length-1 ; i++) {}
+
+		Optional<ArrayList<Card>> brelan=findBrelanValueOfCards();
+		if (brelan.isPresent()){
+			Brelan theBrelan = new Brelan(brelan.get());
+			allCombo.add (theBrelan);}
+
 		Optional<ArrayList<Card>> paire=findPaireValueOfCards();
 		if (paire.isPresent()){
 		Paire thePaire = new Paire(paire.get());
@@ -60,6 +67,18 @@ public class HandAnalyzer {
 		return tabString;
 	}
 
+
+	private ArrayList<Card> findCards(int numberOfCard) {
+		ArrayList<Card> cardsToReturn = new ArrayList<Card>();
+		for(Card carte : listCards){
+			if (carte.getValue() == numberOfCard) cardsToReturn.add(carte);
+		}
+		return cardsToReturn;
+	}
+
+
+
+
 	private Optional<Card> findHightValueOfCards() {
 		Optional <Card> hightestCard=Optional.empty();
 		if (listCards.size()>0) {
@@ -85,12 +104,15 @@ public class HandAnalyzer {
 	}
 
 	private Optional <ArrayList<Card>> findBrelanValueOfCards() {
-		Optional <ArrayList<Card>> brelan = Optional.empty();
-		for(Integer index : countCardArray){
-			if (countCardArray[index] == 3) return brelan;
+
+		for (int i = countCardArray.length - 1; i != 0; i--) {
+			if (countCardArray[i] == 3) {
+				return Optional.of(findCards(i));
+			}
 		}
-		return brelan;
+		return Optional.empty();
 	}
+
 
 	/*private Card findHightValueOfCardsV2() {
 	Card hightestCard = this.listCards.get(0);

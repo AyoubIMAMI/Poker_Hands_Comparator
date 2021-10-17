@@ -8,9 +8,9 @@ public class Brelan extends Combo {
 
     public Brelan(ArrayList<Card> brelan) {
         this.name = "Brelan";
-        this.priorityValue = 3;
+        this.priorityValue = 0;
         this.cardOfCombo=brelan;
-        this.comboValue = brelan.get(1).getValue();
+        this.comboValue = brelan.get(0).getValue();
     }
 
 
