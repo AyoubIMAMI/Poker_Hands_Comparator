@@ -9,6 +9,11 @@ public class Card implements Comparable<Card>{
 		this.color = newColor;
 	}
 
+	public Card(int v) {
+		this.value = v;
+		this.color = "";
+	}
+
 	public int getValue() {
 		return value;
 	}

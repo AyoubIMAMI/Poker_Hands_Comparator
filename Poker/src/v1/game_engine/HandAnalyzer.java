@@ -11,6 +11,8 @@ import v1.game_class.rules_class.Paire;
 
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
+	private ArrayList<Card> listOfNoUsedCards = new ArrayList<Card>();
+
 	private int nbrCarte = 14;
 	private int[] countCardArray  = new int[nbrCarte];
 
@@ -28,6 +30,7 @@ public class HandAnalyzer {
 	
 	public ArrayList<Combo> getComboList(ArrayList<Card> cards) {
 		this.listCards=cards;
+		this.listOfNoUsedCards.addAll(listCards);
 		ArrayList<Combo> allCombo = new ArrayList<Combo>();
 		genTab();
 
@@ -75,6 +78,13 @@ public class HandAnalyzer {
 		}
 		return cardsToReturn;
 	}
+	
+	private ArrayList<Card> removeFromNoUsedCards(ArrayList<Card> cards){
+		for(Card aCard : cards) {
+			listOfNoUsedCards.remove(aCard);
+		}
+		return cards;
+	}
 
 
 
@@ -102,9 +112,11 @@ public class HandAnalyzer {
 	public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
 		this.listCards=cards;
 		genTab();
+		this.listOfNoUsedCards.addAll(listCards);
+
 		
 		ArrayList<Combo> comboList= new ArrayList<Combo>();
-		
+		comboList.add(new Hauteur(new Card(0)));
 		for(int i = countCardArray.length-1 ; i > 0 ; i--) {
 			Optional<Combo> combo = findType1(countCardArray[i], i);
 			if(combo.isPresent())
@@ -119,15 +131,16 @@ public class HandAnalyzer {
 		switch (numberOfaCard)
 		{
 		     case 2:
-		    	return Optional.of(new Paire(findCards(valueOfCard)));
+		    	return Optional.of(new Paire(removeFromNoUsedCards(findCards(valueOfCard))));
 		    	
 		     case 3:
-		    	 return Optional.of(new Brelan(findCards(valueOfCard)));
+		    	 return Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
 			    
 		     default:
 		     	return Optional.empty();
 		}
 	}
+	
 	
 
 	//Cherche si il y a une Paire puis la retire
@@ -179,10 +192,20 @@ public class HandAnalyzer {
 	//private void checkColor() {}
 
 
+	
+	
 	@Override
 	public String toString() {
 		return "HandAnalyzer [listCards=" + listCards + ", countCardArray=" + printIntTab(countCardArray) + "]";
 	}
+
+
+	public ArrayList<Card> getListOfNoUsedCards() {
+		return listOfNoUsedCards;
+	}
+
+
+
 
 
 

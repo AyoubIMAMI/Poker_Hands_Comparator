@@ -36,6 +36,10 @@ public class Hand {
 		return handAnalyzerOfPlayer;
 	}
 
+	public ArrayList<Card> getNoUsedCards() {
+		return this.handAnalyzerOfPlayer.getListOfNoUsedCards();
+	}
+
 
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import v1.game_class.Card;
 import v1.game_class.Hand;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
@@ -12,7 +13,7 @@ import v1.game_class.rules_class.Paire;
 public class HandComparator {
 	private Hand player1;
 	private Hand player2;
-	private int winningComboIndex;
+	private int winningComboIndex = 0;
 	//permet de connaitre l'Index des Paires (-1 => il n'y a pas de paire)
 
 	public HandComparator(Hand hand1, Hand hand2) {
@@ -21,31 +22,56 @@ public class HandComparator {
 	}
 
 	public Optional<Hand> getWinner() {
-		ArrayList<Combo> tabComboP1=player1.getComboOfThePlayer();
-		ArrayList<Combo> tabComboP2=player2.getComboOfThePlayer();
-		int i=0;
-		Optional<Hand> winner=Optional.empty();
-		while (i<tabComboP1.size()) {
-			int comboP1 = tabComboP1.get(i).getPriorityValue();
-			int comboP2 = tabComboP2.get(i).getPriorityValue();
-			if (comboP1 == comboP2) {
-					winner = checkCombo(i);
-					winningComboIndex = i;
-			} else if (comboP1 < comboP2) {
-				winner=Optional.of(player1);
+		ArrayList<Combo> listComboP1=player1.getComboOfThePlayer();
+		ArrayList<Combo> listComboP2=player2.getComboOfThePlayer();
+		
+		//start 1 because in index 0 it's the potential hauteur
+		for(int i = 1 ; i <listComboP1.size(); i++) {
+			int valueOfComboP1 = listComboP1.get(i).getPriorityValue();
+			int valueOfComboP2 = listComboP2.get(i).getPriorityValue();
+			
+			if (valueOfComboP1 > valueOfComboP2) {
 				winningComboIndex = i;
-			} else {
-				winner=Optional.of(player2);
+				return Optional.of(player1);
+			} else if (valueOfComboP2 > valueOfComboP1){
 				winningComboIndex = i;
+				return Optional.of(player2);
 			}
-			if (winner.isPresent()){
-				i=tabComboP1.size();
-			}
-			i++;
 		}
-		return(winner);
+		return whoWhinByHauteur(player1, player2);
 	}
 
+
+	private Optional<Hand> whoWhinByHauteur(Hand player1, Hand player2) {
+		ArrayList<Card> allNoUsedCardOfPlayer1 = player1.getNoUsedCards();
+		ArrayList<Card> allNoUsedCardOfPlayer2 = player2.getNoUsedCards();
+		equalizeSizeOfList(allNoUsedCardOfPlayer1, allNoUsedCardOfPlayer2); // equalize the size of the two list
+		int sizeOfList = allNoUsedCardOfPlayer1.size();
+		
+		for(int i = sizeOfList-1 ; i >= 0; i--) {
+			int valueCardPlayer1 = allNoUsedCardOfPlayer1.get(i).getValue();
+			int valueCardPlayer2 = allNoUsedCardOfPlayer2.get(i).getValue();
+			
+			if(valueCardPlayer1 > valueCardPlayer2) {
+				player1.getComboOfThePlayer().set(0, new Hauteur(allNoUsedCardOfPlayer1.get(i)));
+				return Optional.of(player1);
+			}
+			else if(valueCardPlayer1 < valueCardPlayer2) {
+				player2.getComboOfThePlayer().set(0, new Hauteur(allNoUsedCardOfPlayer2.get(i)));
+				return Optional.of(player2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	private void equalizeSizeOfList(ArrayList<Card> listOne, ArrayList<Card> listeTwo) {
+		if(listOne.size() > listeTwo.size()) {
+			while(listOne.size() != listeTwo.size()) listeTwo.add(new Card(0)); // card with value equal to 0 to compute the winner by hauteur next
+		}
+		else if(listeTwo.size() > listOne.size()) {
+			while(listOne.size() != listeTwo.size()) listOne.add(new Card(0));
+		}
+	}
 
 	private Optional<Hand> checkCombo(int ComboIndex){
 		Optional<Hand> winner = Optional.empty();
