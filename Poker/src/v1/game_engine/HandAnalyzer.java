@@ -117,7 +117,7 @@ public class HandAnalyzer {
 	 */
 
 	private Optional <ArrayList<Card>> findBrelanValueOfCards() {
-
+	
 		for (int i = countCardArray.length - 1; i != 0; i--) {
 			if (countCardArray[i] == 3) {
 				return Optional.of(findCards(i));
