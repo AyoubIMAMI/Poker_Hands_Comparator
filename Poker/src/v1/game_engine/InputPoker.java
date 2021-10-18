@@ -37,13 +37,10 @@ public class InputPoker {
 
 		for (int i = 0; i < nbrCarte; i++) {
 			int cardValue = 0;
-			boolean check = true;
 			String cardColor = "";
 
-			while (!(cardValue > 0 && cardValue < 14) || !(cardColor.equals("ca") || cardColor.equals("co")
-					|| cardColor.equals("pi") || cardColor.equals("tr"))) {
+			while (!(cardValue > 0 && cardValue < 14) || !(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi") || cardColor.equals("tr"))) {
 				System.out.print("write a card: ");
-
 				String[] promptValue;
 				String onlyDigit = "-?\\d+";
 				promptValue = myObj.nextLine().split(" ");
@@ -53,8 +50,7 @@ public class InputPoker {
 					cardValue = Integer.valueOf(promptValue[0]);
 					if (cardValue > 0 && cardValue < 14 && promptValue.length > 1) {
 						cardColor = promptValue[1];
-						if (!(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi")
-								|| cardColor.equals("tr")))
+						if (!(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi") || cardColor.equals("tr")))
 							printError();
 					} else
 						printError();
@@ -75,7 +71,6 @@ public class InputPoker {
 				"Attention, la valeur d'une carte est comprise entre 1 et 13 et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
 	}
 
-
 	private void printErrorSameCard() {
 		System.out.println("Attention, cette carte est déjà dans la main, veuillez saisir une carte différente");
 	}
@@ -89,6 +84,5 @@ public class InputPoker {
 		}
 		return true;
 	}
-	
 
 }

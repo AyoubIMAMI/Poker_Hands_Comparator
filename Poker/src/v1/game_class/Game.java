@@ -4,16 +4,14 @@ package v1.game_class;
 public class Game {
 	private Hand player1;
 	private Hand player2;
-	
 
-	//Constructor
-	public Game(Hand hand1, Hand hand2){
+	// Constructor
+	public Game(Hand hand1, Hand hand2) {
 		this.player1 = hand1;
 		this.player2 = hand2;
-		//handAnalyzer= new HandAnalyzer(this.player1, this.player2);
 	}
-	
-	//accesseur
+
+	// accesseur
 	public Hand getPlayer1() {
 		return player1;
 	}
@@ -21,10 +19,9 @@ public class Game {
 	public Hand getPlayer2() {
 		return player2;
 	}
-	
-	public String toString(){
-		return player1.toString()+" et "+ player2.toString(); 
+
+	public String toString() {
+		return player1.toString() + " et " + player2.toString();
 	}
-	
-	
+
 }
