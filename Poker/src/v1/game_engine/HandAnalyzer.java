@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import v1.game_class.Card;
-import v1.game_class.rules_class.Brelan;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
 import v1.game_class.rules_class.Paire;
+import v1.game_class.rules_class.Brelan;
+import v1.game_class.rules_class.Square;
+
 
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
@@ -120,6 +122,17 @@ public class HandAnalyzer {
 		}
 		return Optional.empty();
 	}
+
+	private Optional <ArrayList<Card>> findSquareValueOfCards() {
+
+
+		for (int i = countCardArray.length - 1; i != 0; i--) {
+			if (countCardArray[i] == 4) {
+				return Optional.of(findCards(i));
+			}
+		}
+		return Optional.empty();
+	}
 	
 	
 	public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
@@ -148,6 +161,9 @@ public class HandAnalyzer {
 		    	
 		     case 3:
 		    	 return Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
+
+			 case 4:
+				 return Optional.of(new Square(removeFromNoUsedCards(findCards(valueOfCard))));
 			    
 		     default:
 		     	return Optional.empty();

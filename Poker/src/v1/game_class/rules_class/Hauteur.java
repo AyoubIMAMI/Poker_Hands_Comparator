@@ -6,7 +6,7 @@ public class Hauteur extends Combo{
 
 	public Hauteur(Card hightestCard) {
 		this.name = "La Hauteur";
-		this.priorityValue = 2;
+		this.priorityValue = 0;
 		this.cardOfCombo.add(hightestCard);
 		this.comboValue = hightestCard.getValue();
 	}
