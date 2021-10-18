@@ -176,19 +176,19 @@ public class HandAnalyzer {
 		}
 	}
 	private Optional<Combo> findType2 (ArrayList<Combo> listeCombo){
-		if (listeCombo.size()==3) {
-			if (listeCombo.get(1).getName() == "Brelan") {
-				return (Optional.of(new Full(listeCombo.get(1),listeCombo.get(2))));
+		if (listeCombo.size()==2) {
+			if (listeCombo.get(0).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(0),listeCombo.get(1))));
 			}
-			else if (listeCombo.get(2).getName() == "Brelan") {
-				return (Optional.of(new Full(listeCombo.get(2),listeCombo.get(1))));
+			else if (listeCombo.get(1).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(1),listeCombo.get(0))));
 			}
 			else{
-				if (listeCombo.get(1).getComboValue()>listeCombo.get(2).getComboValue()){
-					return (Optional.of(new DoublePaire(listeCombo.get(2),listeCombo.get(1))));
+				if (listeCombo.get(1).getComboValue()>listeCombo.get(1).getComboValue()){
+					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
 				}
 				else{
-					return (Optional.of(new DoublePaire(listeCombo.get(2),listeCombo.get(1))));
+					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
 				}
 			}
 		}

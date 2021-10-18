@@ -25,7 +25,7 @@ public class HandComparator {
 		ArrayList<Combo> listComboP1=player1.getComboOfThePlayer();
 		ArrayList<Combo> listComboP2=player2.getComboOfThePlayer();
 		//start 1 because in index 0 it's the potential hauteur
-			for(int i = 0 ; i <listComboP1.size(); i++) {
+			for(int i = 0 ; i <listComboP1.size()-1; i++) {
 			int priorityOfComboP1 = listComboP1.get(i).getPriorityValue();
 			int priorityOfComboP2 = listComboP2.get(i).getPriorityValue();
 			
