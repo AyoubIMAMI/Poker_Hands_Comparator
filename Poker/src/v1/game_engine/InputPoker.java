@@ -37,6 +37,7 @@ public class InputPoker {
 
 		for (int i = 0; i < nbrCarte; i++) {
 			int cardValue = 0;
+			boolean check = true;
 			String cardColor = "";
 
 			while (!(cardValue > 0 && cardValue < 14) || !(cardColor.equals("ca") || cardColor.equals("co")
@@ -59,6 +60,7 @@ public class InputPoker {
 						printError();
 				} else
 					printError();
+
 			}
 
 			allCard.add(new Card(cardValue, cardColor));
@@ -73,8 +75,20 @@ public class InputPoker {
 				"Attention, la valeur d'une carte est comprise entre 1 et 13 et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
 	}
 
+
 	private void printErrorSameCard() {
 		System.out.println("Attention, cette carte est déjà dans la main, veuillez saisir une carte différente");
 	}
+
+	private boolean checkSameCard(ArrayList<Card> allCard, Card cardToCheck) {
+		for (int i = 0; i < allCard.size(); i++) {
+			if (allCard.get(i) == cardToCheck) {
+				printErrorSameCard();
+				return false;
+			}
+		}
+		return true;
+	}
+	
 
 }
