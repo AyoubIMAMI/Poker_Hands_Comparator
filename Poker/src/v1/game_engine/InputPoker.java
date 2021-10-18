@@ -73,4 +73,8 @@ public class InputPoker {
 				"Attention, la valeur d'une carte est comprise entre 1 et 13 et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
 	}
 
+	private void printErrorSameCard() {
+		System.out.println("Attention, cette carte est déjà dans la main, veuillez saisir une carte différente");
+	}
+
 }
