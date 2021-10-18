@@ -8,6 +8,7 @@ public abstract class Combo {
 	String name;
 	int priorityValue;
 	int comboValue;
+	int type;
 	ArrayList<Card> cardOfCombo = new ArrayList<Card>();
 	
 	public abstract String toString();
@@ -25,5 +26,5 @@ public abstract class Combo {
 	public int getComboValue() {
 		return comboValue;
 	}
-	
+	public int getComboType(){return type;}
 }

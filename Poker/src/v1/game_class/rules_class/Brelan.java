@@ -11,6 +11,7 @@ public class Brelan extends Combo {
         this.priorityValue = 0;
         this.cardOfCombo=brelan;
         this.comboValue = brelan.get(0).getValue();
+        this.type=1;
     }
 
 

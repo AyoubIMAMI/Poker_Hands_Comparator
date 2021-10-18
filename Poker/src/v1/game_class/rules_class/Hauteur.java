@@ -9,6 +9,7 @@ public class Hauteur extends Combo{
 		this.priorityValue = 2;
 		this.cardOfCombo.add(hightestCard);
 		this.comboValue = hightestCard.getValue();
+		this.type=0;
 	}
 
 	

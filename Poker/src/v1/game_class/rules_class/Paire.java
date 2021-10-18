@@ -11,6 +11,7 @@ public class Paire extends Combo{
         this.priorityValue = 1;
         this.cardOfCombo=paire;
         this.comboValue = paire.get(0).getValue();
+        this.type=1;
     }
 
 

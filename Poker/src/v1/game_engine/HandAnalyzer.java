@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import v1.game_class.Card;
-import v1.game_class.rules_class.Brelan;
-import v1.game_class.rules_class.Combo;
-import v1.game_class.rules_class.Hauteur;
-import v1.game_class.rules_class.Paire;
+import v1.game_class.rules_class.*;
 
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
@@ -135,7 +132,11 @@ public class HandAnalyzer {
 			if(combo.isPresent())
 				comboList.add(combo.get());
 		}
-		
+		Optional<Combo> Type2=findType2(comboList);
+		if (Type2.isPresent()){
+			comboList.clear();
+			comboList.add(Type2.get());
+		}
 		return comboList;
 	}
 	
@@ -152,6 +153,25 @@ public class HandAnalyzer {
 		     default:
 		     	return Optional.empty();
 		}
+	}
+	private Optional<Combo> findType2 (ArrayList<Combo> listeCombo){
+		if (listeCombo.size()==2) {
+			if (listeCombo.get(0).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(0),listeCombo.get(1))));
+			}
+			else if (listeCombo.get(1).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(1),listeCombo.get(0))));
+			}
+			else{
+				if (listeCombo.get(0).getComboValue()>listeCombo.get(1).getComboValue()){
+					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
+				}
+				else{
+					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
+				}
+			}
+		}
+		return (Optional.empty());
 	}
 	
 	
