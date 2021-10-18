@@ -8,7 +8,7 @@ public class Full  extends Combo{
     int additionalcombovalue;
     public Full(Combo brelan,Combo paire) {
         this.name = "Full";
-        this.priorityValue =5;
+        this.priorityValue =6;
         this.cardOfCombo.addAll(brelan.getCardOfCombo());
         this.cardOfCombo.addAll(paire.getCardOfCombo());
         this.comboValue = brelan.getComboValue();

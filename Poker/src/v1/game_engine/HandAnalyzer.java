@@ -5,6 +5,12 @@ import java.util.Optional;
 
 import v1.game_class.Card;
 import v1.game_class.rules_class.*;
+import v1.game_class.rules_class.Combo;
+import v1.game_class.rules_class.Hauteur;
+import v1.game_class.rules_class.Paire;
+import v1.game_class.rules_class.Brelan;
+import v1.game_class.rules_class.Square;
+
 
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
@@ -117,6 +123,17 @@ public class HandAnalyzer {
 		}
 		return Optional.empty();
 	}
+
+	private Optional <ArrayList<Card>> findSquareValueOfCards() {
+
+
+		for (int i = countCardArray.length - 1; i != 0; i--) {
+			if (countCardArray[i] == 4) {
+				return Optional.of(findCards(i));
+			}
+		}
+		return Optional.empty();
+	}
 	
 	
 	public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
@@ -126,7 +143,6 @@ public class HandAnalyzer {
 
 		
 		ArrayList<Combo> comboList= new ArrayList<Combo>();
-		comboList.add(new Hauteur(new Card(0)));
 		for(int i = countCardArray.length-1 ; i > 0 ; i--) {
 			Optional<Combo> combo = findType1(countCardArray[i], i);
 			if(combo.isPresent())
@@ -134,9 +150,11 @@ public class HandAnalyzer {
 		}
 		Optional<Combo> Type2=findType2(comboList);
 		if (Type2.isPresent()){
-			comboList.clear();
+			comboList.remove(0);
+			comboList.remove(0);
 			comboList.add(Type2.get());
 		}
+		comboList.add(new Hauteur(new Card(0)));
 		return comboList;
 	}
 	
@@ -149,25 +167,28 @@ public class HandAnalyzer {
 		    	
 		     case 3:
 		    	 return Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
+
+			 case 4:
+				 return Optional.of(new Square(removeFromNoUsedCards(findCards(valueOfCard))));
 			    
 		     default:
 		     	return Optional.empty();
 		}
 	}
 	private Optional<Combo> findType2 (ArrayList<Combo> listeCombo){
-		if (listeCombo.size()==2) {
-			if (listeCombo.get(0).getName() == "Brelan") {
-				return (Optional.of(new Full(listeCombo.get(0),listeCombo.get(1))));
+		if (listeCombo.size()==3) {
+			if (listeCombo.get(1).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(1),listeCombo.get(2))));
 			}
-			else if (listeCombo.get(1).getName() == "Brelan") {
-				return (Optional.of(new Full(listeCombo.get(1),listeCombo.get(0))));
+			else if (listeCombo.get(2).getName() == "Brelan") {
+				return (Optional.of(new Full(listeCombo.get(2),listeCombo.get(1))));
 			}
 			else{
-				if (listeCombo.get(0).getComboValue()>listeCombo.get(1).getComboValue()){
-					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
+				if (listeCombo.get(1).getComboValue()>listeCombo.get(2).getComboValue()){
+					return (Optional.of(new DoublePaire(listeCombo.get(2),listeCombo.get(1))));
 				}
 				else{
-					return (Optional.of(new DoublePaire(listeCombo.get(1),listeCombo.get(0))));
+					return (Optional.of(new DoublePaire(listeCombo.get(2),listeCombo.get(1))));
 				}
 			}
 		}

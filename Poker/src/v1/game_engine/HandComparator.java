@@ -24,16 +24,15 @@ public class HandComparator {
 	public Optional<Hand> getWinner() {
 		ArrayList<Combo> listComboP1=player1.getComboOfThePlayer();
 		ArrayList<Combo> listComboP2=player2.getComboOfThePlayer();
-		
 		//start 1 because in index 0 it's the potential hauteur
-		for(int i = 1 ; i <listComboP1.size(); i++) {
+			for(int i = 0 ; i <listComboP1.size(); i++) {
 			int priorityOfComboP1 = listComboP1.get(i).getPriorityValue();
 			int priorityOfComboP2 = listComboP2.get(i).getPriorityValue();
 			
-			if (priorityOfComboP1 < priorityOfComboP2) {
+			if (priorityOfComboP1 > priorityOfComboP2) {
 				winningComboIndex = i;
 				return Optional.of(player1);
-			} else if (priorityOfComboP2 < priorityOfComboP1){
+			} else if (priorityOfComboP2 > priorityOfComboP1){
 				winningComboIndex = i;
 				return Optional.of(player2);
 			}
@@ -45,10 +44,12 @@ public class HandComparator {
 					winningComboIndex = i;
 					return Optional.of(player1);
 				}
-				else {
+				else if(valueOfComboP2 > valueOfComboP1){
 					winningComboIndex = i;
 					return Optional.of(player2);
 				}
+				else
+					return whoWhinByHauteur(player1, player2);
 			}
 		}
 		return whoWhinByHauteur(player1, player2);

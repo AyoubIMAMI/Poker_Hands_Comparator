@@ -8,7 +8,7 @@ public class DoublePaire extends Combo{
     int additionalcombovalue;
     public DoublePaire(Combo paire1,Combo paire2) {
         this.name = "DoublePaire";
-        this.priorityValue =4;
+        this.priorityValue =2;
         this.cardOfCombo.addAll(paire1.getCardOfCombo());
         this.cardOfCombo.addAll(paire2.getCardOfCombo());
         //prend la valeur de la plus grande Paire qui est mise en position 0
