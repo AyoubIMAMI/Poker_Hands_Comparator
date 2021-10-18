@@ -30,10 +30,10 @@ public class HandComparator {
 			int priorityOfComboP1 = listComboP1.get(i).getPriorityValue();
 			int priorityOfComboP2 = listComboP2.get(i).getPriorityValue();
 			
-			if (priorityOfComboP1 > priorityOfComboP2) {
+			if (priorityOfComboP1 < priorityOfComboP2) {
 				winningComboIndex = i;
 				return Optional.of(player1);
-			} else if (priorityOfComboP2 > priorityOfComboP1){
+			} else if (priorityOfComboP2 < priorityOfComboP1){
 				winningComboIndex = i;
 				return Optional.of(player2);
 			}
