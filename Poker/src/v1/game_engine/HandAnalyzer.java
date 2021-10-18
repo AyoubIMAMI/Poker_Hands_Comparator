@@ -104,4 +104,9 @@ public class HandAnalyzer {
 		}
 		return (Optional.empty());
 	}
+
+	public ArrayList<Card> getListOfNoUsedCards() {
+		return listOfNoUsedCards;
+	}
+	
 }
