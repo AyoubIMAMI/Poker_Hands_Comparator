@@ -5,7 +5,6 @@ import v1.game_class.Card;
 import java.util.ArrayList;
 
 public class DoublePaire extends Combo {
-	int additionalcombovalue;
 
 	public DoublePaire(Combo paire1, Combo paire2) {
 		this.name = "DoublePaire";

@@ -1,6 +1,7 @@
 package v1.game_class;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import v1.game_class.rules_class.Combo;
 import v1.game_engine.HandAnalyzer;
@@ -8,13 +9,14 @@ import v1.game_engine.HandAnalyzer;
 public class Hand {
 	private String name;
 	private ArrayList<Card> cardList = new ArrayList<Card>();
-	private ArrayList<Combo> comboOfThePlayer = new ArrayList<Combo>();
-	private HandAnalyzer handAnalyzerOfPlayer = new HandAnalyzer();
+	private Optional<Combo> comboOfThePlayer;
+	private HandAnalyzer handAnalyzerOfPlayer;
 
 	public Hand(String name, ArrayList<Card> cardValue) {
 		this.name = name;
 		this.cardList = cardValue;
-		comboOfThePlayer = handAnalyzerOfPlayer.getCombo(cardList);
+		handAnalyzerOfPlayer = new HandAnalyzer(cardList);
+		comboOfThePlayer = handAnalyzerOfPlayer.getCombo();
 	}
 
 	public String getName() {
@@ -29,8 +31,13 @@ public class Hand {
 		return cardList;
 	}
 
-	public ArrayList<Combo> getComboOfThePlayer() {
+	public Optional<Combo> getComboOfThePlayer() {
 		return comboOfThePlayer;
+	}
+	
+
+	public void setComboOfThePlayer(Optional<Combo> comboOfThePlayer) {
+		this.comboOfThePlayer = comboOfThePlayer;
 	}
 
 	public HandAnalyzer getHandAnalyzerOfPlayer() {
