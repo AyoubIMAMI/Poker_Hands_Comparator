@@ -33,13 +33,13 @@ public class InputPoker {
 		Scanner myObj = new Scanner(System.in);
 
 		System.out.println(
-				"Entrer la valeur (de 1 à 13) puis la couleur des cartes (ca = carreau, co = coeur, pi = pique, tr = trèfle) du joueurs (exemple: 5 pi):");
+				"Entrer la valeur (de 2 à 14) puis la couleur des cartes (ca = carreau, co = coeur, pi = pique, tr = trèfle) du joueurs (exemple: 5 pi):");
 
 		for (int i = 0; i < nbrCarte; i++) {
 			int cardValue = 0;
 			String cardColor = "";
 
-			while (!(cardValue > 0 && cardValue < 14) || !(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi") || cardColor.equals("tr"))) {
+			while (!(cardValue > 1 && cardValue < 15) || !(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi") || cardColor.equals("tr"))) {
 				System.out.print("write a card: ");
 				String[] promptValue;
 				String onlyDigit = "-?\\d+";
@@ -48,7 +48,7 @@ public class InputPoker {
 
 				if (integerOrNot1) {
 					cardValue = Integer.valueOf(promptValue[0]);
-					if (cardValue > 0 && cardValue < 14 && promptValue.length > 1) {
+					if (cardValue > 1 && cardValue < 15 && promptValue.length > 1) {
 						cardColor = promptValue[1];
 						if (!(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi") || cardColor.equals("tr")))
 							printError();

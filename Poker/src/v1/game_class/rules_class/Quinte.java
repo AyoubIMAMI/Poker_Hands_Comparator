@@ -10,7 +10,7 @@ public class Quinte extends Combo {
         this.name = "Quinte";
         this.priorityValue = 4;
         this.cardOfCombo = quinte;
-        this.comboValue = quinte.get(quinte.size()-1).getValue();
+        this.comboValue = quinte.get(quinte.size()-2).getValue();
         this.type = 3;
     }
 
