@@ -11,6 +11,7 @@ public class Square extends Combo {
 		this.priorityValue = 7;
 		this.cardOfCombo = square;
 		this.comboValue = square.get(0).getValue();
+		this.type = 1;
 	}
 
 	@Override

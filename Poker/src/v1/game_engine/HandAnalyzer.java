@@ -57,6 +57,11 @@ public class HandAnalyzer {
 		this.listOfNoUsedCards.addAll(listCards);
 
 		ArrayList<Combo> comboList = new ArrayList<Combo>();
+		Optional<Combo> type3Combo = findType3();
+		if (type3Combo.isPresent()) {
+			comboList.add(type3Combo.get());
+		}
+
 		for (int i = countCardArray.length - 1; i > 0; i--) {
 			Optional<Combo> combo = findType1(countCardArray[i], i);
 			if (combo.isPresent())
@@ -103,6 +108,16 @@ public class HandAnalyzer {
 			}
 		}
 		return (Optional.empty());
+	}
+
+	private Optional<Combo> findType3() {
+		int index = 0;
+		while (countCardArray[index] != 1 && index < countCardArray.length - 4) index++;
+		for (int compteur = index; compteur < index + 4; compteur++) {
+			if (countCardArray[compteur] != 1) return Optional.empty();
+
+		}
+		return Optional.of(new Quinte(this.listCards));
 	}
 
 	public ArrayList<Card> getListOfNoUsedCards() {
