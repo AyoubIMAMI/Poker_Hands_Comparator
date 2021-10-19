@@ -12,6 +12,10 @@ public class Full extends Combo {
 		this.additionalcombovalue = paire.getComboValue();
 		this.type = 2;
 	}
+	
+	public int getAdditionalcombovalue() {
+		return additionalcombovalue;
+	}
 
 	@Override
 	public String toString() {

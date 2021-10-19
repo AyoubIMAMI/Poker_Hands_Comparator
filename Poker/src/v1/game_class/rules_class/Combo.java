@@ -9,6 +9,10 @@ public abstract class Combo {
 	int priorityValue;
 	int comboValue;
 	int type;
+	int additionalcombovalue;
+
+
+
 	ArrayList<Card> cardOfCombo = new ArrayList<Card>();
 
 	public abstract String toString();
@@ -31,5 +35,9 @@ public abstract class Combo {
 
 	public int getComboType() {
 		return type;
+	}
+	
+	public int getAdditionalcombovalue() {
+		return additionalcombovalue;
 	}
 }

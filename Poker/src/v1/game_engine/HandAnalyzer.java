@@ -51,15 +51,17 @@ public class HandAnalyzer {
         return cards;
     }
 
+    
     public ArrayList<Combo> getCombo(ArrayList<Card> cards) {
         this.listCards = cards;
         genTab();
         this.listOfNoUsedCards.addAll(listCards);
-
         ArrayList<Combo> comboList = new ArrayList<Combo>();
+        
         Optional<Combo> type3Combo = findType3();
         if (type3Combo.isPresent()) {
             comboList.add(type3Combo.get());
+            return comboList;
         }
 
         for (int i = countCardArray.length - 1; i > 0; i--) {
@@ -67,13 +69,13 @@ public class HandAnalyzer {
             if (combo.isPresent())
                 comboList.add(combo.get());
         }
+        
         Optional<Combo> Type2 = findType2(comboList);
         if (Type2.isPresent()) {
             comboList.remove(0);
             comboList.remove(0);
             comboList.add(Type2.get());
         }
-        comboList.add(new Hauteur(new Card(0)));
         return comboList;
     }
 

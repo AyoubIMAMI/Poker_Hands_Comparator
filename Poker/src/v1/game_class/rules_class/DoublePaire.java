@@ -19,6 +19,10 @@ public class DoublePaire extends Combo {
 		this.type = 2;
 	}
 
+
+
+
+
 	@Override
 	public String toString() {
 		return null;
