@@ -11,7 +11,7 @@ public class Flush extends Combo {
         this.priorityValue = 5;
         this.cardOfCombo = flush;
         this.comboColor = flush.get(0).getColor();
-        this.type = 4;
+        this.type = 4; //pas utile
     }
 
     @Override
