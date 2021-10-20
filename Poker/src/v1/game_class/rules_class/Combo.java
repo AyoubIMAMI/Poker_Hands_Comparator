@@ -6,6 +6,7 @@ import v1.game_class.Card;
 
 public abstract class Combo {
 	String name;
+	String comboColor;
 	int priorityValue;
 	int comboValue;
 	int type;
@@ -32,6 +33,8 @@ public abstract class Combo {
 	public int getComboValue() {
 		return comboValue;
 	}
+
+	public String getComboColor() { return comboColor;}
 
 	public int getComboType() {
 		return type;

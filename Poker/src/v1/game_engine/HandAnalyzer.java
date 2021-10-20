@@ -61,6 +61,7 @@ public class HandAnalyzer {
         Optional<Combo> type3Combo = findType3();
         if (type3Combo.isPresent()) {
             comboList.add(type3Combo.get());
+            //if color -< combo = qf(couleur, quinte)
             return comboList;
         }
 
@@ -76,32 +77,34 @@ public class HandAnalyzer {
             comboList.remove(0);
             comboList.add(Type2.get());
         }
+
+        Optional<Combo> anyColor = findColor();
+        if (anyColor.isPresent()) {
+            comboList.add(anyColor.get());
+            return comboList;
+        }
+
         return comboList;
     }
 
     private Optional<Combo> findType1(int numberOfaCard, int valueOfCard) {
-        switch (numberOfaCard) {
-            case 2:
-                return Optional.of(new Paire(removeFromNoUsedCards(findCards(valueOfCard))));
-
-            case 3:
-                return Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
-
-            case 4:
-                return Optional.of(new Square(removeFromNoUsedCards(findCards(valueOfCard))));
-
-            default:
-                return Optional.empty();
-        }
+        return switch (numberOfaCard) {
+            case 2 -> Optional.of(new Paire(removeFromNoUsedCards(findCards(valueOfCard))));
+            case 3 -> Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
+            case 4 -> Optional.of(new Square(removeFromNoUsedCards(findCards(valueOfCard))));
+            default -> Optional.empty();
+        };
     }
 
     private Optional<Combo> findType2(ArrayList<Combo> listeCombo) {
         if (listeCombo.size() == 2) {
             if (listeCombo.get(0).getName() == "Brelan") {
                 return (Optional.of(new Full(listeCombo.get(0), listeCombo.get(1))));
-            } else if (listeCombo.get(1).getName() == "Brelan") {
+            }
+            if (listeCombo.get(1).getName() == "Brelan") {
                 return (Optional.of(new Full(listeCombo.get(1), listeCombo.get(0))));
-            } else {
+            }
+            else {
                 if (listeCombo.get(1).getComboValue() > listeCombo.get(1).getComboValue()) {
                     return (Optional.of(new DoublePaire(listeCombo.get(1), listeCombo.get(0))));
                 } else {
@@ -129,6 +132,14 @@ public class HandAnalyzer {
 
         }
         return Optional.of(new Quinte(this.listCards));
+    }
+
+    private Optional<Combo> findColor() {
+        String color = listCards.get(0).getColor();
+        for (int i = 1; i < listCards.size(); i++ ) {
+            if (!(listCards.get(i).getColor().equals(color))) return Optional.empty();
+        }
+        return Optional.of(new Flush(this.listCards));
     }
 
     public ArrayList<Card> getListOfNoUsedCards() {
