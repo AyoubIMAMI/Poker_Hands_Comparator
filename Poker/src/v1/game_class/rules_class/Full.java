@@ -1,7 +1,6 @@
 package v1.game_class.rules_class;
 
 public class Full extends Combo {
-	int additionalcombovalue;
 
 	public Full(Combo brelan, Combo paire) {
 		this.name = "Full";
