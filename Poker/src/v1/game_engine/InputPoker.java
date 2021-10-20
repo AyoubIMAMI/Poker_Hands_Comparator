@@ -26,54 +26,6 @@ public class InputPoker {
 		return new Game(hand1, hand2);
 	}
 
-	// catch a user input to create a card
-	// accept only numbers between 1 and 13 and only numbers no strings
-	@SuppressWarnings("resource")
-	public ArrayList<Card> promptCardV1(int nbrCarte) {
-
-		ArrayList<Card> allCard = new ArrayList<Card>();
-		Scanner myObj = new Scanner(System.in);
-
-		System.out.println(
-				"Entrer la valeur (de 2 à 14) puis la couleur des cartes (ca = carreau, co = coeur, pi = pique, tr = trèfle) du joueurs (exemple: 5 pi):");
-
-		for (int i = 0; i < nbrCarte; i++) {
-			int cardValue = 0;
-			String cardColor = "";
-
-			while (!(cardValue > 1 && cardValue < 15) || !(cardColor.equals("ca") || cardColor.equals("co")
-					|| cardColor.equals("pi") || cardColor.equals("tr"))) {
-				String[] promptValue;
-				String onlyDigit = "-?\\d+";
-				System.out.print("write a card: ");
-
-				promptValue = myObj.nextLine().split(" ");
-				boolean integerOrNot1 = promptValue[0].matches(onlyDigit); // check si c'est une chaine de caractère
-
-				if ((cardValue = isHead(promptValue[0])) != -1) {
-
-				}
-				if (integerOrNot1) {
-					cardValue = Integer.valueOf(promptValue[0]);
-					if (cardValue > 1 && cardValue < 15 && promptValue.length > 1) {
-						cardColor = promptValue[1];
-						if (!(cardColor.equals("ca") || cardColor.equals("co") || cardColor.equals("pi")
-								|| cardColor.equals("tr")))
-							printError();
-					} else
-						printError();
-				} else
-					printError();
-
-			}
-
-			allCard.add(new Card(cardValue, cardColor));
-		}
-		System.out.println(""); // \n
-		Collections.sort(allCard);
-		return allCard;
-	}
-
 	public ArrayList<Card> promptCard() {
 		System.out.println("");
 		boolean listOfCardIsValid = false;
