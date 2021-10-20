@@ -1,4 +1,4 @@
-/*package Test;
+package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,11 +32,15 @@ class PrintPokerTest {
 		listCard1.add(new Card(5));
 		listCard1.add(new Card(2));
 		listCard1.add(new Card(8));
+        listCard1.add(new Card(5));
+        listCard1.add(new Card(8));
 		//Init list of cards 2
 		listCard2 = new ArrayList<Card>();
 		listCard2.add(new Card(3));
 		listCard2.add(new Card(9));
 		listCard2.add(new Card(7));
+        listCard2.add(new Card(9));
+        listCard2.add(new Card(2));
 		//Init two Hand
 		firstHand = new Hand("first", listCard1);
 		secondHand = new Hand("second", listCard2);
@@ -84,6 +88,7 @@ class PrintPokerTest {
 		listCard.add(new Card(5));
 		listCard.add(new Card(2));
 		listCard.add(new Card(8));
+
 		Hand myHand = new Hand("player", listCard);
 		
 		//Initialisation d'une Optional<Hand> qui contient myHand
@@ -127,4 +132,3 @@ class PrintPokerTest {
 	}
 
 }
-*/

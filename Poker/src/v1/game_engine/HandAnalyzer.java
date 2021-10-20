@@ -23,7 +23,7 @@ public class HandAnalyzer {
 		genTab();
 		this.listOfNoUsedCards.addAll(listCards);
 	}
-
+	//
 	private void genTab() {
 		countCardArray = fillTabWith0(countCardArray);
 		for (Card aCard : listCards) {
@@ -31,7 +31,7 @@ public class HandAnalyzer {
 			this.countCardArray[indiceValueOfCard]++;
 		}
 	}
-
+	//remplit le tableau de 0
 	private int[] fillTabWith0(int[] tab) {
 		for (int i = 0; i < tab.length; i++)
 			tab[i] = 0;
