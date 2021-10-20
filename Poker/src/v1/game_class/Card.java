@@ -23,9 +23,29 @@ public class Card implements Comparable<Card> {
 	}
 
 	public String toString() {
-		return String.valueOf(this.value) + " " + this.color;
+		String headStringValue;
+		if((headStringValue=isHead()).equals("-1"))
+			return String.valueOf(this.value) + " " + this.color;
+		else
+			return headStringValue + " " + this.color;
 	}
 
+	
+	private String isHead() {
+		switch (this.value) {
+		case 11:
+			return "V";
+		case 12:
+			return "D";
+		case 13:
+			return "R";
+		case 14:
+			return "A";
+		default:
+			return "-1";
+		}
+	}
+	
 	@Override
 	public int compareTo(Card card) {
 		// trions les cartes selon leur valeurs dans l'ordre croissant
