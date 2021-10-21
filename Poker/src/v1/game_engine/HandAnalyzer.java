@@ -23,7 +23,7 @@ public class HandAnalyzer {
 		genTab();
 		this.listOfNoUsedCards.addAll(listCards);
 	}
-	//
+
 	private void genTab() {
 		countCardArray = fillTabWith0(countCardArray);
 		for (Card aCard : listCards) {
@@ -31,7 +31,7 @@ public class HandAnalyzer {
 			this.countCardArray[indiceValueOfCard]++;
 		}
 	}
-	//remplit le tableau de 0
+
 	private int[] fillTabWith0(int[] tab) {
 		for (int i = 0; i < tab.length; i++)
 			tab[i] = 0;
@@ -63,11 +63,7 @@ public class HandAnalyzer {
 
 		//----- type 3
 		type3Combo = findType3();
-		if (type3Combo.isPresent()) {
-			anyColor = findColor();
-			if (anyColor.isPresent()) return Optional.of(new QuinteFlush(this.listCards));
-			return type3Combo;
-		}
+		if (type3Combo.isPresent())	return type3Combo;
 		//-----type 1
 		for (int i = countCardArray.length - 1; i > 0; i--) {
 			Optional<Combo> combo = findType1(countCardArray[i], i);

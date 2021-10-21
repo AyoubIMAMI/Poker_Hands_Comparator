@@ -40,7 +40,12 @@ public class PrintPoker {
 				return result;
 			}	
 		}
-		return "ERROR COMBO IS UNDEFINED";
+		return printError();
+	}
+
+	private String printError() {
+		
+		return "Error no winner define";
 	}
 
 	// present the game, the two players and theirs cards
