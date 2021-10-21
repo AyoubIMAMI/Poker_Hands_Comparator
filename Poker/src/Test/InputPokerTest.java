@@ -1,4 +1,4 @@
-package Test;
+/**package Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
@@ -36,7 +36,7 @@ class InputPokerTest {
 		Hand hand1 = new Hand("player1", listHand1);
 		Hand hand2 = new Hand("player2", listHand2);
 		
-		Game game1 = new Game(hand1, hand2);*/
+		Game game1 = new Game(hand1, hand2);
 
 	@Test
 	void genListCardTest() {
@@ -58,3 +58,4 @@ class InputPokerTest {
 	}
 
 }
+*/
