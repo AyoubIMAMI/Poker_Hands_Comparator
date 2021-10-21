@@ -38,10 +38,10 @@ public class HandAnalyzer {
 		return tab;
 	}
 
-	private ArrayList<Card> findCards(int numberOfCard) {
+	private ArrayList<Card> findCards(int ValueofCard) {
 		ArrayList<Card> cardsToReturn = new ArrayList<Card>();
 		for (Card carte : listCards) {
-			if (carte.getValue() == numberOfCard)
+			if (carte.getValue() == ValueofCard)
 				cardsToReturn.add(carte);
 		}
 		return cardsToReturn;
@@ -78,9 +78,9 @@ public class HandAnalyzer {
 		if (type2Combo.isPresent())	return type2Combo;
 
 		//-----type 1
-		else if (comboList.size() == 1)
-			return Optional.of(comboList.get(0));
+		if (comboList.size() == 1) return Optional.of(comboList.get(0));
 
+		//-----type color
         anyColor = findColor();
         if (anyColor.isPresent()) return anyColor;
 
@@ -88,8 +88,8 @@ public class HandAnalyzer {
 			return Optional.empty();
 	}
 
-	private Optional<Combo> findType1(int numberOfaCard, int valueOfCard) {
-        return switch (numberOfaCard) {
+	private Optional<Combo> findType1(int numberOfCards, int valueOfCard) {
+        return switch (numberOfCards) {
             case 2 -> Optional.of(new Paire(removeFromNoUsedCards(findCards(valueOfCard))));
             case 3 -> Optional.of(new Brelan(removeFromNoUsedCards(findCards(valueOfCard))));
             case 4 -> Optional.of(new Square(removeFromNoUsedCards(findCards(valueOfCard))));
@@ -137,7 +137,7 @@ public class HandAnalyzer {
 		return Optional.of(new Quinte(this.listCards));
 	}
 
-    private Optional<Combo> findColor() {
+    public Optional<Combo> findColor() {
         String color = listCards.get(0).getColor();
         for (int i = 1; i < listCards.size(); i++ ) {
             if (!(listCards.get(i).getColor().equals(color))) return Optional.empty();
