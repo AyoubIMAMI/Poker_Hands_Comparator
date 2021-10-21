@@ -46,6 +46,14 @@ public class Card implements Comparable<Card> {
 		}
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		Card c = (Card) obj;
+		if(c.getValue()==this.getValue() && this.getColor().equals(c.getColor()))return true;
+		return false;
+	}
+
 	@Override
 	public int compareTo(Card card) {
 		// trions les cartes selon leur valeurs dans l'ordre croissant

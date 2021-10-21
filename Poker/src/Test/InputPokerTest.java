@@ -1,5 +1,7 @@
 package Test;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -39,12 +41,20 @@ class InputPokerTest {
 	@Test
 	void genListCardTest() {
 		InputPoker inputPok = new InputPoker();
-
+		ArrayList<Card> listHand1 = new ArrayList<Card>();
+		listHand1.add(new Card(2, "ca"));
+		listHand1.add(new Card(2, "co"));
+		listHand1.add(new Card(4, "pi"));
+		listHand1.add(new Card(5, "tr"));
+		listHand1.add(new Card(6, "ca"));
 		
-		String line = "2ca 10ca Aca 2pi 5co";
+		
+		String line = "2ca 2co 4pi 5tr 6ca";
 		Optional<ArrayList<Card>> OptionalListOfCard = inputPok.genListCard(line );
-		
-		assertEquals();
+		assertTrue(OptionalListOfCard.isPresent());
+		ArrayList<Card> resListCard = OptionalListOfCard.get();
+		for(int i = 0 ; i < resListCard.size();i++)
+			assertTrue(resListCard.get(i).equals(listHand1.get(i)));
 	}
 
 }

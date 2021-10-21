@@ -43,7 +43,7 @@ public class InputPoker {
 		return listCard;
 	}
 
-	private Optional<ArrayList<Card>> genListCard(String line) {
+	public Optional<ArrayList<Card>> genListCard(String line) {
 		ArrayList<Card> allCard = new ArrayList<Card>();
 
 		// contient la ligne ou l'on a décrit les cartes
