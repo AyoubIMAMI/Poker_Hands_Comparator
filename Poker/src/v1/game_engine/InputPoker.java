@@ -40,6 +40,7 @@ public class InputPoker {
 			else
 				listOfCardIsValid = false;
 		}
+		Collections.sort(listCard);
 		return listCard;
 	}
 
