@@ -20,7 +20,7 @@ public class Hand {
 	}
 
 	public String getName() {
-		return name;
+		return name; 
 	}
 
 	public String toString() {
@@ -48,4 +48,12 @@ public class Hand {
 		return this.handAnalyzerOfPlayer.getListOfNoUsedCards();
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Hand otherHand = (Hand) obj;
+		for(int i = 0 ; i < this.cardList.size() ;i++) {
+			if(!cardList.get(i).equals(otherHand.getCardList().get(i))) return false;
+		}
+		return true;
+	}
 }
