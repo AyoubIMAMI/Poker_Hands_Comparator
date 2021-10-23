@@ -27,11 +27,6 @@ public class Game {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(hand1, hand2);
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		Game otherGame = (Game) obj;
 		boolean sameGame1 = otherGame.getHand1().equals(this.getHand1());
