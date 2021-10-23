@@ -61,6 +61,4 @@ public class HandAnalyzerTest {
         assertEquals(color, flushHand.findColor());
     }
 
-
-
 }

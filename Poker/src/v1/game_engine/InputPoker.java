@@ -13,16 +13,15 @@ import v1.game_class.Hand;
 public class InputPoker {
 	int valueOfTheCard = 0;
 	int colorOfTheCard = 1;
+	PrintPoker printer = new PrintPoker();
 
 	public InputPoker() {
 	}
 
 	// create a game
-	public Game init() {
-		int nbrCarte = 5;
-		printRules();
-		Hand hand1 = new Hand("player1", promptCard());
-		Hand hand2 = new Hand("player2", promptCard());
+	public Game init(ArrayList<Card> listCards1, ArrayList<Card> listCards2) {
+		Hand hand1 = new Hand("player1", listCards1);
+		Hand hand2 = new Hand("player2", listCards2);
 		return new Game(hand1, hand2);
 	}
 
@@ -40,6 +39,7 @@ public class InputPoker {
 			else
 				listOfCardIsValid = false;
 		}
+		Collections.sort(listCard);
 		return listCard;
 	}
 
@@ -54,7 +54,7 @@ public class InputPoker {
 				allCard.add(potentialCard.get());
 		}
 		if (allCard.size() != 5 || twoSameCardPresent(allCard)) {
-			printError();
+			printer.printErrorInput();
 			return Optional.empty();
 		}
 		return Optional.of(allCard);
@@ -122,15 +122,5 @@ public class InputPoker {
 		}
 	}
 
-	private void printError() {
-		System.out.println(
-				"Attention, la valeur d'une carte est comprise entre 1 et 13, deux cartes identiques ne peuvent être présentes dans une main, et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
-	}
-
-	private void printRules() {
-		System.out.println(
-				"Pour les valeurs au dessus de 10 (les tetes), on utilise: Valet = V, Dame = D, Rois = R et As = A");
-		System.out.println("Pour les couleurs on utilise: ca = carreau, co = coeur, pi = pique, tr = trèfle");
-		System.out.println("Par exemple: 2ca 10ca Aca 2pi 5co");
-	}
+	
 }

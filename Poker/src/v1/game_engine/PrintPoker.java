@@ -10,11 +10,8 @@ import v1.game_class.rules_class.Combo;
 
 //the class that manage the output message
 public class PrintPoker {
-	private Game game;
 
-	public PrintPoker(Game g) {
-		this.game = g;
-	}
+	public PrintPoker() {}
 
 	// print the winner
 	// Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte
@@ -49,8 +46,20 @@ public class PrintPoker {
 	}
 
 	// present the game, the two players and theirs cards
-	public void start() {
+	public void start(Game game) {
 		System.out.println(game);
+	}
+
+	public void printRules() {
+		System.out.println(
+				"Pour les valeurs au dessus de 10 (les tetes), on utilise: Valet = V, Dame = D, Rois = R et As = A");
+		System.out.println("Pour les couleurs on utilise: ca = carreau, co = coeur, pi = pique, tr = trèfle");
+		System.out.println("Par exemple: 2ca 10ca Aca 2pi 5co");
+	}
+	
+	public void printErrorInput() {
+		System.out.println(
+				"Attention, la valeur d'une carte est comprise entre 1 et 13, deux cartes identiques ne peuvent être présentes dans une main, et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
 	}
 
 }

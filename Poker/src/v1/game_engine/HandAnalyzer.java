@@ -140,6 +140,7 @@ public class HandAnalyzer {
         }
         return Optional.of(new Flush(this.listCards));
     }
+
 	public ArrayList<Card> getListOfNoUsedCards() {
 		return listOfNoUsedCards;
 	}

@@ -13,14 +13,15 @@ public class Controller {
 
 	public void initGame() {
 		inputP = new InputPoker();
-		pGame = inputP.init();
-		printP = new PrintPoker(pGame);
-		printP.start();
+		printP = new PrintPoker();
+		printP.printRules();
+		pGame = inputP.init(inputP.promptCard(), inputP.promptCard());
+		printP.start(pGame);
 
 	}
 
 	public void startGame() {
-		HandComparator handComp = new HandComparator(this.pGame.getPlayer1(), this.pGame.getPlayer2());
+		HandComparator handComp = new HandComparator(this.pGame.getHand1(), this.pGame.getHand2());
 		printP.win(handComp.getWinner());
 
 	}
