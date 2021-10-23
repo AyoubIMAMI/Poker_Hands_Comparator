@@ -16,7 +16,7 @@ public class PrintPoker {
 	// print the winner
 	// Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte
 	// il a gagné (une seule ou plusieurs cartes)
-	public String win(Optional<Hand> winner, int winningComboIndex) {
+	public String win(Optional<Hand> winner) {
 		String result;
 		if (!(winner.isPresent())) {
 			result = "Egalite";

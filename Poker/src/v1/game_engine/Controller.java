@@ -19,10 +19,10 @@ public class Controller {
 		printP.start(pGame);
 		return pGame;
 	}
- 
+
 	public void startGame() {
 		HandComparator handComp = new HandComparator(this.pGame.getHand1(), this.pGame.getHand2());
-		printP.win(handComp.getWinner(), handComp.getWinningComboIndex());
+		printP.win(handComp.getWinner());
 
 	}
 
