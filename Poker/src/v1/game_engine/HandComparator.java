@@ -12,7 +12,6 @@ import v1.game_class.rules_class.Hauteur;
 public class HandComparator {
 	private Hand player1;
 	private Hand player2;
-	private int winningComboIndex = 0;
 
 	public HandComparator(Hand hand1, Hand hand2) {
 		this.player1 = hand1;
@@ -55,10 +54,8 @@ public class HandComparator {
 		int priorityOfComboP2 = combo2.getPriorityValue();
 
 		if (priorityOfComboP1 > priorityOfComboP2) {
-			winningComboIndex = 0;
 			return Optional.of(player1);
 		} else if (priorityOfComboP2 > priorityOfComboP1) {
-			winningComboIndex = 0;
 			return Optional.of(player2);
 		} else if (priorityOfComboP1 == priorityOfComboP2) {
 			int valueOfComboP1 = combo1.getComboValue();
@@ -80,10 +77,8 @@ public class HandComparator {
 
 	private Optional<Hand> whoWhinByValueCombo(int valueOfComboP1, int valueOfComboP2) {
 		if (valueOfComboP1 > valueOfComboP2) {
-			winningComboIndex = 0;
 			return Optional.of(player1);
 		} else if (valueOfComboP2 > valueOfComboP1) {
-			winningComboIndex = 0;
 			return Optional.of(player2);
 		} else
 			return Optional.empty();//whoWhinByHauteur(player1, player2);
@@ -119,9 +114,5 @@ public class HandComparator {
 			while (listOne.size() != listeTwo.size())
 				listOne.add(new Card(0));
 		}
-	}
-
-	public int getWinningComboIndex() {
-		return winningComboIndex;
 	}
 }

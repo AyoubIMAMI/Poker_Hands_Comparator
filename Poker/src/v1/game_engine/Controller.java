@@ -21,7 +21,7 @@ public class Controller {
 
 	public void startGame() {
 		HandComparator handComp = new HandComparator(this.pGame.getPlayer1(), this.pGame.getPlayer2());
-		printP.win(handComp.getWinner(), handComp.getWinningComboIndex());
+		printP.win(handComp.getWinner());
 
 	}
 

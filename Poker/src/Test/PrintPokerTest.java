@@ -1,4 +1,4 @@
-/**
+
 package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,15 +12,14 @@ import org.junit.jupiter.api.Test;
 import v1.game_class.Card;
 import v1.game_class.Game;
 import v1.game_class.Hand;
+import v1.game_class.rules_class.Brelan;
 import v1.game_engine.PrintPoker;
 
 class PrintPokerTest {
 	
 	//variables
 	ArrayList<Card> listCard1;
-	ArrayList<Card> listCard2;
-	Hand firstHand;
-	Hand secondHand;
+	Hand handBrelan;
 	PrintPoker printer;
 	Game myGame;
 
@@ -28,29 +27,13 @@ class PrintPokerTest {
 	void init() {		
 		//Init PrintPoker
 		//------------------------------------------------
-		//Init list of cards 1
+		//Hand With brelan (we don't need a real brelan to test print)
 		listCard1 = new ArrayList<Card>();
-		listCard1.add(new Card(5));
-		listCard1.add(new Card(2));
-		listCard1.add(new Card(8));
-        listCard1.add(new Card(5));
-        listCard1.add(new Card(8));
-		//Init list of cards 2
-		listCard2 = new ArrayList<Card>();
-		listCard2.add(new Card(3));
-		listCard2.add(new Card(9));
-		listCard2.add(new Card(7));
-        listCard2.add(new Card(9));
-        listCard2.add(new Card(2));
-		//Init two Hand
-		firstHand = new Hand("first", listCard1);
-		secondHand = new Hand("second", listCard2);
-		//Init a game
-		myGame = new Game(firstHand, secondHand);
-		//Init the PrintPoker
-		printer = new PrintPoker(myGame);
-		//------------------------------------------------
-		
+		listCard1.add(new Card(5,"Tr"));
+		Hand handBrelan= new Hand("P1",listCard1);
+		Brelan comboBrelan= new Brelan(listCard1);
+		handBrelan.setComboOfThePlayer(Optional.of(comboBrelan));
+
 	}
 	//Optional<Hand> bad;
  
@@ -133,4 +116,3 @@ class PrintPokerTest {
 	}
 
 }
- */
