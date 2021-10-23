@@ -132,7 +132,7 @@ public class HandComparatorTest {
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(8,"ca"));
-        listCard1.add(new Card(8,"ca"));
+        listCard1.add(new Card(2,"ca"));
         Hand hand2=new Hand("player2",listCard1);
         HandComparator handComparator = new HandComparator(handBrelan, hand2);
         assertEquals(handComparator.getWinner(), Optional.empty());
@@ -167,7 +167,7 @@ public class HandComparatorTest {
         ArrayList <Card>listCardp2 = new ArrayList<>();
         listCardp2.add(new Card(4, "tr"));
         listCardp2.add(new Card(4,"ca"));
-        listCardp2.add(new Card(8,"ca"));
+        listCardp2.add(new Card(4,"ca"));
         listCardp2.add(new Card(8,"ca"));
         listCardp2.add(new Card(8,"ca"));
         Hand hand2=new Hand("player1",listCardp2);
