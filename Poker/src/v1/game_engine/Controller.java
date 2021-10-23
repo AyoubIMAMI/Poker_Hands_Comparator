@@ -11,13 +11,13 @@ public class Controller {
 	public Controller() {
 	}
 
-	public void initGame() {
+	public Game initGame() {
 		inputP = new InputPoker();
 		printP = new PrintPoker();
 		printP.printRules();
 		pGame = inputP.init(inputP.promptCard(), inputP.promptCard());
 		printP.start(pGame);
-
+		return pGame;
 	}
  
 	public void startGame() {
