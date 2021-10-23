@@ -55,31 +55,31 @@ class InputPokerTest {
 	void genListCardBadListTesy() {
 		String line = "2ca 2co 4pi 10tr 12ca 6co";
 		Optional<ArrayList<Card>> OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr 415ca";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr chevalca";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr 4couleurs";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr 10tr";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 		
 		line = "2ca 2co 4pi 10tr Patate";
 		OptionalListOfCard = inputPok.genListCard(line);
-		assertTrue(!OptionalListOfCard.isPresent());
+		assertTrue(OptionalListOfCard.isEmpty());
 	}
 	
 
