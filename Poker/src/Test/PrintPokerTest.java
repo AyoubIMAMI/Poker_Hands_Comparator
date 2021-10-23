@@ -13,101 +13,90 @@ import v1.game_class.Card;
 import v1.game_class.Game;
 import v1.game_class.Hand;
 import v1.game_class.rules_class.Brelan;
+import v1.game_class.rules_class.Hauteur;
 import v1.game_engine.PrintPoker;
 
 class PrintPokerTest {
 	
 	//variables
-	ArrayList<Card> listCard1;
+	ArrayList<Card> listCardBrelan;
+	Card cardHauteur;
 	Hand handBrelan;
+	Hand handHauteur;
 	PrintPoker printer;
-	Game myGame;
 
 	@BeforeEach
 	void init() {		
 		//Init PrintPoker
+		printer= new PrintPoker();
 		//------------------------------------------------
-		//Hand With brelan (we don't need a real brelan to test print)
-		listCard1 = new ArrayList<Card>();
-		listCard1.add(new Card(5,"Tr"));
-		Hand handBrelan= new Hand("P1",listCard1);
-		Brelan comboBrelan= new Brelan(listCard1);
+		//Hand With brelan
+		listCardBrelan = new ArrayList<Card>();
+		ArrayList<Card> listCard2 = new ArrayList<>();
+		listCardBrelan.add(new Card(5, "tr"));
+		listCardBrelan.add(new Card(5,"ca"));
+		listCardBrelan.add(new Card(5,"ca"));
+		listCard2.add(new Card(8,"ca"));
+		listCard2.add(new Card(2,"ca"));
+		listCard2.addAll(listCardBrelan);
+		handBrelan=new Hand("player",listCard2);
+		Brelan comboBrelan= new Brelan(listCardBrelan);
 		handBrelan.setComboOfThePlayer(Optional.of(comboBrelan));
-
+		//Hand with Hauteur
+		listCard2 = new ArrayList<>();
+		listCard2.add(new Card(2, "tr"));
+		listCard2.add(new Card(4,"ca"));
+		listCard2.add(new Card(6,"ca"));
+		listCard2.add(new Card(8,"ca"));
+		cardHauteur = new Card(10,"ca");
+		listCard2.add(cardHauteur);
+		handHauteur=new Hand("player",listCard2);
+		Hauteur comboHauteur= new Hauteur(cardHauteur);
+		handHauteur.setComboOfThePlayer(Optional.of(comboHauteur));
 	}
 	//Optional<Hand> bad;
  
 	
 	@Test
-	void winTestRealHand() {
-		//Initialisation d'une main
-		//------------------------------------------------
-		ArrayList<Card> listCard = new ArrayList<Card>();
-		listCard.add(new Card(5));
-		listCard.add(new Card(2));
-		listCard.add(new Card(8));
-		Hand myHand = new Hand("player", listCard);
-		
-		//Initialisation d'une Optional<Hand> qui contient myHand
-		Optional<Hand> realHand = Optional.of(myHand);
-		
+	//Test with a combo with a number of card>1
+	void winTest1() {
 		//victory information
-		String winningMethod = "la Hauteur";
-		ArrayList<Card> winningCards = new ArrayList<Card>();
-		winningCards.add(new Card(8));
-
+		String winningMethod = "Brelan";
+		ArrayList<Card> winningCards = new ArrayList<>();
+		winningCards.addAll(listCardBrelan);
 		
 		//------------------------------------------------
 
 		//Test, textWinner contient le resultat qu'est censé renvoyé le PrintPoker
-		String textWinner = "Le joueur "+ myHand.getName()+ " a gagne avec "+ winningMethod +" et avec la carte "+ winningCards.get(0).getValue();
-		assertEquals(printer.win(realHand, winningMethod, winningCards), textWinner);
+		String textWinner = "Le joueur "+ handBrelan.getName()+ " a gagne avec "+ winningMethod +" et avec les cartes "+ winningCards;
+		assertEquals(printer.win(Optional.of(handBrelan)), textWinner);
 	}
-	
+
+
+
 	@Test
-	void winTestRealHandTwoCards() {
-		//Initialisation d'une main
-		//------------------------------------------------
-		ArrayList<Card> listCard = new ArrayList<Card>();
-		listCard.add(new Card(5));
-		listCard.add(new Card(2));
-		listCard.add(new Card(8));
-
-		Hand myHand = new Hand("player", listCard);
-		
-		//Initialisation d'une Optional<Hand> qui contient myHand
-		Optional<Hand> realHand = Optional.of(myHand);
-		
+		//Test with a combo with a number of card=1
+	void winTest2() {
 		//victory information
-		String winningMethod = "la Hauteur";
-		ArrayList<Card> winningCards = new ArrayList<Card>();
-		winningCards.add(new Card(8));
-		winningCards.add(new Card(5));
+		String winningMethod = "La Hauteur";
+		Card winningCards = cardHauteur;
 
-
-		
 		//------------------------------------------------
 
 		//Test, textWinner contient le resultat qu'est censé renvoyé le PrintPoker
-		String textWinner = "Le joueur "+ myHand.getName()+ " a gagne avec "+ winningMethod +" et avec les cartes "+ winningCards.toString();
-		assertEquals(printer.win(realHand, winningMethod, winningCards), textWinner);
+		String textWinner = "Le joueur "+ handHauteur.getName()+ " a gagne avec "+ winningMethod +" et avec la carte "+ winningCards;
+		assertEquals(printer.win(Optional.of(handHauteur)), textWinner);
 	}
-	
 	@Test
 	void winTestEgality() {
 		
 		
-		//Initialisation d'une Optional<Hand> qui contient myHand
+		//Initialisation d'une Optional<Hand> qui est vide
 		Optional<Hand> realHand = Optional.empty();
-		String winningMethod = null;
-		ArrayList<Card> winningCards = new ArrayList<Card>();
-		
-		
 		//------------------------------------------------
-
 		//Test, textWinner contient le resultat qu'est censé renvoyé le PrintPoker
 		String textWinner = "Egalite";
-		assertEquals(printer.win(realHand, winningMethod, winningCards), textWinner);
+		assertEquals(printer.win(realHand), textWinner);
 	}
 	
 	@Test
