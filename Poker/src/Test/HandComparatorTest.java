@@ -133,8 +133,8 @@ public class HandComparatorTest {
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(8,"ca"));
         listCard1.add(new Card(8,"ca"));
-        Hand hand1=new Hand("player",listCard1);
-        HandComparator handComparator = new HandComparator(handBrelan, hand1);
+        Hand hand2=new Hand("player2",listCard1);
+        HandComparator handComparator = new HandComparator(handBrelan, hand2);
         assertEquals(handComparator.getWinner(), Optional.empty());
     }
 
