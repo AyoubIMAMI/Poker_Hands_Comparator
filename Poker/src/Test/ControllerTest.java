@@ -1,5 +1,7 @@
 package Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +17,9 @@ public class ControllerTest {
 
 	ArrayList<Card> listHand1 = new ArrayList<Card>();
 	ArrayList<Card> listHand2 = new ArrayList<Card>();
+	Game game1;
+	Hand hand1;
+	Hand hand2;
 	InputPoker inputPok;
 	Controller control;
 
@@ -32,18 +37,19 @@ public class ControllerTest {
 		listHand2.add(new Card(10, "tr"));
 		listHand2.add(new Card(12, "ca"));
 
-		Hand hand1 = new Hand("player1", listHand1);
-		Hand hand2 = new Hand("player2", listHand2);
-
-		Game game1 = new Game(hand1, hand2);
+		hand1 = new Hand("player1", listHand1);
+		hand2 = new Hand("player2", listHand2);
+		game1 = new Game(hand1, hand2);
 		inputPok = new InputPoker();
+		control = new Controller();
 
 	}
 	
 	@Test
 	void initGameTest() {
-		
+		assertEquals(game1, control.createGame(listHand1, listHand2));
 	}
 	
+
 	
 }

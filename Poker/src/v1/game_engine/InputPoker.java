@@ -18,19 +18,12 @@ public class InputPoker {
 	public InputPoker() {
 	}
 
-	// create a game
-	public Game init(ArrayList<Card> listCards1, ArrayList<Card> listCards2) {
-		Hand hand1 = new Hand("player1", listCards1);
-		Hand hand2 = new Hand("player2", listCards2);
-		return new Game(hand1, hand2);
-	}
-
 	public ArrayList<Card> promptCard() {
 		System.out.println("");
 		boolean listOfCardIsValid = false;
 		ArrayList<Card> listCard = new ArrayList<Card>();
 		Optional<ArrayList<Card>> OptionalListCard;
-		
+
 		while (listOfCardIsValid != true) {
 			listOfCardIsValid = true;
 			OptionalListCard = genListCard(prompt());
@@ -122,5 +115,4 @@ public class InputPoker {
 		}
 	}
 
-	
 }

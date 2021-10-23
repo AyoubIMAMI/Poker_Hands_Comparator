@@ -72,13 +72,15 @@ class InputPokerTest {
 		line = "2ca 2co 4pi 10tr 4couleurs";
 		OptionalListOfCard = inputPok.genListCard(line);
 		assertTrue(!OptionalListOfCard.isPresent());
+		
+		line = "2ca 2co 4pi 10tr 10tr";
+		OptionalListOfCard = inputPok.genListCard(line);
+		assertTrue(!OptionalListOfCard.isPresent());
+		
+		line = "2ca 2co 4pi 10tr Patate";
+		OptionalListOfCard = inputPok.genListCard(line);
+		assertTrue(!OptionalListOfCard.isPresent());
 	}
 	
-
-	@Test
-	void initTest() {
-		Game aGame = new Game(new Hand("player1", listHand1), new Hand("player2", listHand2));
-		assertEquals(inputPok.init(listHand1, listHand2), aGame);
-	}
 
 }
