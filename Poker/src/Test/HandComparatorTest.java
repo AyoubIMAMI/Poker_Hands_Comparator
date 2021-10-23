@@ -68,7 +68,7 @@ public class HandComparatorTest {
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(8,"ca"));
-        listCard1.add(new Card(8,"ca"));
+        listCard1.add(new Card(2,"ca"));
         handBrelan=new Hand("player",listCard1);
 
         //initialization handDoublePaire
@@ -100,7 +100,7 @@ public class HandComparatorTest {
 
         //initialization handCarré
         listCard1 = new ArrayList<Card>();
-        listCard1.add(new Card(5, "ca"));
+        listCard1.add(new Card(5, "tr"));
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(5,"ca"));
         listCard1.add(new Card(5,"ca"));
