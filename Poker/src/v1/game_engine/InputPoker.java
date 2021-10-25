@@ -23,7 +23,8 @@ public class InputPoker {
 	}
 
 	/**
-	 * @return ArrayList<Card>, Return a list of card sort
+	 * @return ArrayList<Card>
+	 * Return a sorted list of card
 	 */
 	public ArrayList<Card> promptCard() {
 		System.out.println("");
@@ -44,10 +45,11 @@ public class InputPoker {
 	}
 
 	/**
-	 * @param line, Contain a description of the list of card, exemple : 2ca 10ca
-	 *              Aca 2pi 5co
-	 * @return a optional list of card base on the line check if the line contain 5
-	 *         cards nicely written
+	 * The line contain a description of the list of card, example : 2ca 10ca
+	 *              Aca 2pi 5co. <br>
+	 * The method check if the line contain only 5 cards well written.
+	 * @param line
+	 * @return A optional list of card base on the description of the list of cards 
 	 */
 	public Optional<ArrayList<Card>> genListCard(String line) {
 		ArrayList<Card> allCard = new ArrayList<Card>();
@@ -66,12 +68,13 @@ public class InputPoker {
 	}
 
 	/**
+	 * Use a scanner to catch what the user type
 	 * @return a line write by the user
 	 */
 	@SuppressWarnings("resource")
 	private String prompt() {
 		Scanner myObj = new Scanner(System.in);
-		System.out.print("write a card: ");
+		System.out.print("write a list of cards: ");
 		return myObj.nextLine();
 	}
 
@@ -89,14 +92,15 @@ public class InputPoker {
 						return true;
 			}
 		}
-		return false;
+		return false; 
 	}
 
 	/**
-	 * @param cardDescription, The description of a card like: "5ca" or "Rtr"
-	 * @return A optional card, if the card is well written return the card else
+	 * If the card is well written return the card otherwise
 	 *         return a Optional.empty(). It's here too that we transform String
-	 *         value of Head into their int value
+	 *         value of Head into their int value.
+	 * @param cardDescription, The description of a card like: "5ca" or "Rtr"
+	 * @return	A optional card
 	 */
 	private Optional<Card> initCard(String cardDescription) {
 		String value;
@@ -126,7 +130,8 @@ public class InputPoker {
 	}
 
 	/**
-	 * @param textCardValue, It's the String value of the card
+	 * Return the int value associated with the heads
+	 * @param textCardValue, it's the String value of the card
 	 * @return The int value of head
 	 */
 	private int isHead(String textCardValue) {

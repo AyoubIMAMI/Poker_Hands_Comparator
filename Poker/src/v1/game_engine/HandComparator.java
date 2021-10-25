@@ -13,11 +13,18 @@ public class HandComparator {
 	private Hand player1;
 	private Hand player2;
 
+	/**
+	 * @param hand1
+	 * @param hand2
+	 */
 	public HandComparator(Hand hand1, Hand hand2) {
 		this.player1 = hand1;
 		this.player2 = hand2;
 	}
 
+	/**
+	 * @return The winner of the game or nothing if it's a draw game
+	 */
 	public Optional<Hand> getWinner() {
 		Optional<Combo> combo1 = player1.getComboOfThePlayer();
 		Optional<Combo> combo2 = player2.getComboOfThePlayer();
@@ -37,14 +44,22 @@ public class HandComparator {
 
 	}
 
-	private Optional<Hand> anyCombo(Hand mourad1, Hand ayoub2) {
-		Optional<Combo> combo1 = mourad1.getComboOfThePlayer();
-		Optional<Combo> combo2 = ayoub2.getComboOfThePlayer();
+	/**
+	 * In parameter we pass 2 hand and at least one of them has no combo so the
+	 * method determines which Hand doesn't have a combo
+	 * 
+	 * @param firstHand
+	 * @param secondHand
+	 * @return The Hand who has a combo
+	 */
+	private Optional<Hand> anyCombo(Hand firstHand, Hand secondHand) {
+		Optional<Combo> combo1 = firstHand.getComboOfThePlayer();
+		Optional<Combo> combo2 = secondHand.getComboOfThePlayer();
 
 		if (combo1.isPresent() && combo2.isEmpty())
-			return Optional.of(mourad1);
+			return Optional.of(firstHand);
 		else if (combo2.isPresent() && combo1.isEmpty())
-			return Optional.of(ayoub2);
+			return Optional.of(secondHand);
 		else
 			return Optional.empty();
 	}
@@ -60,17 +75,17 @@ public class HandComparator {
 		} else if (priorityOfComboP1 == priorityOfComboP2) {
 			int valueOfComboP1 = combo1.getComboValue();
 			int valueOfComboP2 = combo2.getComboValue();
-			 Optional<Hand> potentialWinner = whoWhinByValueCombo(valueOfComboP1, valueOfComboP2);
-			 if (potentialWinner.isPresent())
-					return potentialWinner;
-			else if(combo1.getComboType()==2){
+			Optional<Hand> potentialWinner = whoWhinByValueCombo(valueOfComboP1, valueOfComboP2);
+			if (potentialWinner.isPresent())
+				return potentialWinner;
+			else if (combo1.getComboType() == 2) {
 				valueOfComboP1 = combo1.getAdditionalcombovalue();
 				valueOfComboP2 = combo2.getAdditionalcombovalue();
 				potentialWinner = whoWhinByValueCombo(valueOfComboP1, valueOfComboP2);
-				 if (potentialWinner.isPresent())
-						return potentialWinner;
+				if (potentialWinner.isPresent())
+					return potentialWinner;
 			}
-			 return whoWhinByHauteur(player2, player1);
+			return whoWhinByHauteur(player2, player1);
 		}
 		return Optional.empty();
 	}
@@ -81,7 +96,7 @@ public class HandComparator {
 		} else if (valueOfComboP2 > valueOfComboP1) {
 			return Optional.of(player2);
 		} else
-			return Optional.empty();//whoWhinByHauteur(player1, player2);
+			return Optional.empty();// whoWhinByHauteur(player1, player2);
 	}
 
 	private Optional<Hand> whoWhinByHauteur(Hand p1, Hand p2) {

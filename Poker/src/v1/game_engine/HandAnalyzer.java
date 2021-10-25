@@ -102,7 +102,7 @@ public class HandAnalyzer {
             default -> Optional.empty();
         };
 	}
-
+ 
 	private Optional<Combo> findType2(ArrayList<Combo> listeCombo) {
 		if (listeCombo.size() == 2) {
 			if (listeCombo.get(0).getName() == "Brelan") {
@@ -110,8 +110,8 @@ public class HandAnalyzer {
 			} else if (listeCombo.get(1).getName() == "Brelan") {
 				return (Optional.of(new Full(listeCombo.get(1), listeCombo.get(0))));
 			} else {
-				if (listeCombo.get(1).getComboValue() > listeCombo.get(1).getComboValue()) {
-					return (Optional.of(new DoublePaire(listeCombo.get(1), listeCombo.get(0))));
+				if (listeCombo.get(0).getComboValue() > listeCombo.get(1).getComboValue()) {
+					return (Optional.of(new DoublePaire(listeCombo.get(0), listeCombo.get(1))));
 				} else {
 					return (Optional.of(new DoublePaire(listeCombo.get(1), listeCombo.get(0))));
 				}
@@ -132,7 +132,7 @@ public class HandAnalyzer {
 				return Optional.of(new Quinte(this.listCards));
 		}
 
-		index = 0;
+		index = 2;
 		while (countCardArray[index] != 1 && index < countCardArray.length - 5)
 			index++;
 		for (int compteur = index; compteur < index + 5; compteur++) {
