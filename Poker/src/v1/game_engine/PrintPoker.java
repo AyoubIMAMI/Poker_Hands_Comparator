@@ -16,7 +16,7 @@ public class PrintPoker {
 	
 	/**
 	 * @param winner
-	 * @return String, text thath describe who whin and how
+	 * @return String, print a text that describe who whin and how
 	 * 
 	 */
 	public String win(Optional<Hand> winner) {
@@ -43,6 +43,9 @@ public class PrintPoker {
 		return printError();
 	}
 
+	/**
+	 * @return String, print and return a error message when the winner has not been define
+	 */
 	private String printError() {
 		String errorMsg = "Error no winner define";
 		System.out.println(errorMsg);
