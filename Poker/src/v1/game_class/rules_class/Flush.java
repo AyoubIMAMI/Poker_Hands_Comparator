@@ -23,12 +23,6 @@ public class Flush extends Combo {
     }
 
     @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
 	public boolean equals(Object obj) {
     	Flush other = (Flush) obj;
 		for(int i = 0 ; i < this.cardOfCombo.size() ;i++) {

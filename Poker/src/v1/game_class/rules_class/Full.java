@@ -24,10 +24,6 @@ public class Full extends Combo {
 		return additionalcombovalue;
 	}
 
-	@Override
-	public String toString() {
-		return null;
-	}
 
 	@Override
 	public boolean equals(Object o) {

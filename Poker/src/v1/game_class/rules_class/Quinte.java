@@ -21,12 +21,7 @@ public class Quinte extends Combo {
         this.type = 3;
     }
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    
+
     @Override
 	public boolean equals(Object o) {
     	Quinte other = (Quinte) o;

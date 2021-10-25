@@ -19,7 +19,6 @@ public abstract class Combo {
 	int additionalcombovalue;
 	ArrayList<Card> cardOfCombo = new ArrayList<Card>();
 
-	public abstract String toString();// a enlever
 	
 	/**
 	 * @return The all cards of the Combo.

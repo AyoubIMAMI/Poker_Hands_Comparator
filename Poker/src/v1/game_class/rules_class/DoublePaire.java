@@ -33,9 +33,6 @@ public class DoublePaire extends Combo {
 	}
 
 
-
-
-
 	@Override
 	public String toString() {
 		return null;

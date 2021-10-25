@@ -19,11 +19,6 @@ public class Hauteur extends Combo {
 		this.type = 0;
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean equals(Object o) {

@@ -21,11 +21,6 @@ public class Paire extends Combo {
 		this.type = 1;
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean equals(Object o) {

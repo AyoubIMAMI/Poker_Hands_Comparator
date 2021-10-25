@@ -22,11 +22,6 @@ public class QuinteFlush extends Combo {
         this.comboColor = quinteFlush.get(0).getColor();
     }
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
 	public boolean equals(Object o) {
