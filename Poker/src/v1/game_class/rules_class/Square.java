@@ -23,8 +23,8 @@ public class Square extends Combo {
 	@Override
 	public boolean equals(Object o) {
 		Square other = (Square) o;
-		if(this.comboValue == other.getComboValue()) return true;
-		return false;
+        if(this.comboValue == other.getComboValue()) return true;
+        return false;
 	}
 
 }
