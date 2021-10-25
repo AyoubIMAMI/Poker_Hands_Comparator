@@ -4,6 +4,10 @@ import v1.game_class.Card;
 
 /**
  * The High consists in considering the highest card value of the hand.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class Hauteur extends Combo {
 

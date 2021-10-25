@@ -2,6 +2,10 @@ package v1.game_class.rules_class;
 
 /**
  * A Full is composed of a Brelan and a Pair.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class Full extends Combo {
 

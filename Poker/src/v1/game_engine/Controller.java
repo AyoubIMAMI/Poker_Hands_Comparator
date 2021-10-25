@@ -6,6 +6,13 @@ import v1.game_class.Card;
 import v1.game_class.Game;
 import v1.game_class.Hand;
 
+/**
+ *This class manages the progress of the game.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
+ */
 public class Controller {
 
 	private Game pGame;
@@ -14,7 +21,7 @@ public class Controller {
 	private HandComparator handComp;
 
 	/**
-	 * Create a controller
+	 * Creates a controller
 	 */
 	public Controller() {
 		inputP = new InputPoker();
@@ -36,7 +43,7 @@ public class Controller {
 	}
 
 	/**
-	 * Compare the hands and print the result
+	 * Compares the hands and print the result
 	 */
 	public void startGame() {
 		handComp = new HandComparator(this.pGame.getHand1(), this.pGame.getHand2());
@@ -44,7 +51,7 @@ public class Controller {
 	}
 
 	/**
-	 * Create the both hands and the game
+	 * Creates the both hands and the game
 	 * @param listCards1 Cards of the first hand
 	 * @param listCards2 Cards of the second hand
 	 * @return The Game

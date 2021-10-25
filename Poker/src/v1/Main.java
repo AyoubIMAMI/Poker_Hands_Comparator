@@ -9,7 +9,13 @@ import v1.game_engine.HandComparator;
 import java.util.ArrayList;
 
 
-//main class
+/**
+ * Main class
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
+ */
 public class Main {
 
 	public static void main(String[] args) {

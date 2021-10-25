@@ -7,9 +7,12 @@ import java.util.Scanner;
 
 import v1.game_class.Card;
 
-
 /**
- * This class manage the input of cards
+ * This class manages the cards input
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class InputPoker {
 	int valueOfTheCard = 0;
@@ -24,7 +27,7 @@ public class InputPoker {
 
 	/**
 	 * @return ArrayList<Card>
-	 * Return a sorted list of card
+	 * Returns a sorted list of cards
 	 */
 	public ArrayList<Card> promptCard() {
 		System.out.println("");
@@ -45,11 +48,11 @@ public class InputPoker {
 	}
 
 	/**
-	 * The line contain a description of the list of card, example : 2ca 10ca
+	 * The line contains a description of the cards list, example : 2ca 10ca
 	 *              Aca 2pi 5co. <br>
-	 * The method check if the line contain only 5 cards well written.
+	 * The method checks if the line contains only 5 cards well written.
 	 * @param line
-	 * @return A optional list of card base on the description of the list of cards 
+	 * @return An optional cards list based on the description of the cards list
 	 */
 	public Optional<ArrayList<Card>> genListCard(String line) {
 		ArrayList<Card> allCard = new ArrayList<Card>();
@@ -68,8 +71,8 @@ public class InputPoker {
 	}
 
 	/**
-	 * Use a scanner to catch what the user type
-	 * @return a line write by the user
+	 * Uses a scanner to catch what the user types
+	 * @return a line written by the user
 	 */
 	@SuppressWarnings("resource")
 	private String prompt() {
@@ -80,7 +83,7 @@ public class InputPoker {
 
 	/**
 	 * @param allCard, List of cards
-	 * @return True if the list of cards contain 2 same cards
+	 * @return True if the cards list contains the same card twice
 	 */
 	private boolean twoSameCardPresent(ArrayList<Card> allCard) {
 		for (int i = 0; i < allCard.size(); i++) {
@@ -96,11 +99,11 @@ public class InputPoker {
 	}
 
 	/**
-	 * If the card is well written return the card otherwise
-	 *         return a Optional.empty(). It's here too that we transform String
-	 *         value of Head into their int value.
+	 * If the card is well written, returns the card otherwise
+	 *         return an Optional.empty(). This is also where we transform String
+	 *         value of Heads into their int value.
 	 * @param cardDescription, The description of a card like: "5ca" or "Rtr"
-	 * @return	A optional card
+	 * @return	An optional card
 	 */
 	private Optional<Card> initCard(String cardDescription) {
 		String value;
@@ -130,9 +133,9 @@ public class InputPoker {
 	}
 
 	/**
-	 * Return the int value associated with the heads
+	 * Returns the int value associated to the heads
 	 * @param textCardValue, it's the String value of the card
-	 * @return The int value of head
+	 * @return The int value of the head
 	 */
 	private int isHead(String textCardValue) {
 		switch (textCardValue) {

@@ -7,11 +7,11 @@ import v1.game_class.rules_class.Combo;
 import v1.game_engine.HandAnalyzer;
 
 /**
- * A Hand is compose of 5 cards
- * 
- * @author KARRAKCHOU Mourad
+ * A Hand is composed of 5 cards
+ *
+ * @author LE BIHAN Léo
  * @author IMAMI Ayoub
- * @author LE BIHAN  Leo
+ * @author KARRAKCHOU Mourad
  */
 public class Hand {
 	private String name;
@@ -21,7 +21,7 @@ public class Hand {
 
 	
 	/**
-	 * Create a Hand with a name and a list of cards
+	 * Created a Hand with a name and a list of cards
 	 * @param name
 	 * @param listOfCard
 	 */
@@ -84,8 +84,8 @@ public class Hand {
 
 	/**
 	 * Check if two Hand are equals
-	 *@param Object obj
-	 *@return True if the two Hand are equals
+	 *@param \Object obj
+	 *@return True if the two Hand are equal
 	 */
 	@Override
 	public boolean equals(Object obj) {

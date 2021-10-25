@@ -1,18 +1,18 @@
 package v1.game_class;
 
 /**
- * A Game is compose of 2 hands
- * 
- * @author KARRAKCHOU Mourad
+ * A Game is composed of 2 hands
+ *
+ * @author LE BIHAN Léo
  * @author IMAMI Ayoub
- * @author LE BIHAN  Leo
+ * @author KARRAKCHOU Mourad
  */
 public class Game {
 	private Hand hand1;
 	private Hand hand2;
 
 	/**
-	 * Create a Game
+	 * Creates a Game
 	 * @param hand1
 	 * @param hand2
 	 */
@@ -44,8 +44,8 @@ public class Game {
 
 	/**
 	 * Check if two Game are equals
-	 *@param Object obj
-	 *@return True if the two Game are equals
+	 *@param \Object obj
+	 *@return True if the two Game are equal
 	 */
 	@Override
 	public boolean equals(Object obj) {
