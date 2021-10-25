@@ -63,7 +63,11 @@ public class HandAnalyzer {
 
 		//----- type 3
 		type3Combo = findType3();
-		if (type3Combo.isPresent())	return type3Combo;
+		if (type3Combo.isPresent())	{
+			anyColor = findColor();
+			if (anyColor.isPresent()) return Optional.of(new QuinteFlush(listCards));;
+			return type3Combo;
+		}
 		//-----type 1
 		for (int i = countCardArray.length - 1; i > 0; i--) {
 			Optional<Combo> combo = findType1(countCardArray[i], i);
@@ -139,7 +143,7 @@ public class HandAnalyzer {
 		return Optional.of(new Quinte(this.listCards));
 	}
 
-    public Optional<Combo> findColor() {
+    private Optional<Combo> findColor() {
         String color = listCards.get(0).getColor();
         for (int i = 1; i < listCards.size(); i++ ) {
             if (!(listCards.get(i).getColor().equals(color))) return Optional.empty();
