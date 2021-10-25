@@ -6,9 +6,12 @@ import java.util.Optional;
 import v1.game_class.Card;
 import v1.game_class.Hand;
 import v1.game_class.rules_class.Combo;
-import v1.game_class.rules_class.Full;
 import v1.game_class.rules_class.Hauteur;
 
+/**
+ * @author leolb
+ *
+ */
 public class HandComparator {
 	private Hand player1;
 	private Hand player2;
@@ -23,7 +26,7 @@ public class HandComparator {
 	}
 
 	/**
-	 * @return The winner of the game or nothing if it's a draw game
+	 * @return The winner of the game or nothing if it's a draw game.
 	 */
 	public Optional<Hand> getWinner() {
 		Optional<Combo> combo1 = player1.getComboOfThePlayer();
@@ -45,12 +48,12 @@ public class HandComparator {
 	}
 
 	/**
-	 * In parameter we pass 2 hand and at least one of them has no combo so the
-	 * method determines which Hand doesn't have a combo
+	 * As a parameter, we pass 2 hands and at least one of them has no combo. So the
+	 * method determines which hand has no combo
 	 * 
 	 * @param firstHand
 	 * @param secondHand
-	 * @return The Hand who has a combo
+	 * @return The Hand which has a combo or nothing.
 	 */
 	private Optional<Hand> anyCombo(Hand firstHand, Hand secondHand) {
 		Optional<Combo> combo1 = firstHand.getComboOfThePlayer();
@@ -61,9 +64,17 @@ public class HandComparator {
 		else if (combo2.isPresent() && combo1.isEmpty())
 			return Optional.of(secondHand);
 		else
-			return Optional.empty(); 
+			return Optional.empty();
 	}
 
+	/**
+	 * A combo has a priotity value that we use to determine which combo is the most
+	 * powerful.
+	 * 
+	 * @param combo1
+	 * @param combo2
+	 * @return The hand we win with the most powerful combo
+	 */
 	private Optional<Hand> whoWhinByPriorityCombo(Combo combo1, Combo combo2) {
 		int priorityOfComboP1 = combo1.getPriorityValue();
 		int priorityOfComboP2 = combo2.getPriorityValue();
@@ -90,18 +101,36 @@ public class HandComparator {
 		return Optional.empty();
 	}
 
+	/**
+	 * Two same combo like (two Pear) can be distinguish with he value of the combo.
+	 * For example, one Pear of 2 versus an other Pear of 4, it's the Pear of 4
+	 * which win
+	 * 
+	 * @param valueOfComboP1
+	 * @param valueOfComboP2
+	 * @return The hand which win against the other with only the value of the combo
+	 */
 	private Optional<Hand> whoWhinByValueCombo(int valueOfComboP1, int valueOfComboP2) {
 		if (valueOfComboP1 > valueOfComboP2) {
 			return Optional.of(player1);
 		} else if (valueOfComboP2 > valueOfComboP1) {
 			return Optional.of(player2);
 		} else
-			return Optional.empty();// whoWhinByHauteur(player1, player2);
+			return Optional.empty();
 	}
 
-	private Optional<Hand> whoWhinByHauteur(Hand p1, Hand p2) {
-		ArrayList<Card> allNoUsedCardOfPlayer1 = p1.getNoUsedCards();
-		ArrayList<Card> allNoUsedCardOfPlayer2 = p2.getNoUsedCards();
+	/**
+	 * When two player has the same combo with the same value, we can choose the
+	 * winner by compare their no used cards and the winner is the hand with the
+	 * highest card.
+	 * 
+	 * @param hand2
+	 * @param hand1
+	 * @return The hand which win against the other with only their the highest card
+	 */
+	private Optional<Hand> whoWhinByHauteur(Hand hand1, Hand hand2) {
+		ArrayList<Card> allNoUsedCardOfPlayer1 = hand1.getNoUsedCards();
+		ArrayList<Card> allNoUsedCardOfPlayer2 = hand2.getNoUsedCards();
 		equalizeSizeOfList(allNoUsedCardOfPlayer1, allNoUsedCardOfPlayer2); // equalize the size of the two list
 		int sizeOfList = allNoUsedCardOfPlayer1.size();
 
@@ -121,6 +150,13 @@ public class HandComparator {
 		return Optional.empty();
 	}
 
+	/**
+	 * This method take two list of cards and add card with value 0 in order to
+	 * equalize the size of the two list
+	 * 
+	 * @param listOne
+	 * @param listeTwo
+	 */
 	private void equalizeSizeOfList(ArrayList<Card> listOne, ArrayList<Card> listeTwo) {
 		if (listOne.size() > listeTwo.size()) {
 			while (listOne.size() != listeTwo.size())
