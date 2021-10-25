@@ -53,11 +53,11 @@ public class HandAnalyzerTest {
         listCardsDoublePaire.add(new Card(10,"ca"));
 
         listCardsQuinte = new ArrayList<Card>();
-        listCardsQuinte.add(new Card(3, "tr"));
+        listCardsQuinte.add(new Card(2, "tr"));
+        listCardsQuinte.add(new Card(3,"ca"));
         listCardsQuinte.add(new Card(4,"ca"));
         listCardsQuinte.add(new Card(5,"ca"));
-        listCardsQuinte.add(new Card(6,"ca"));
-        listCardsQuinte.add(new Card(7,"ca"));
+        listCardsQuinte.add(new Card(14,"ca"));
 
         listCardsFlush = new ArrayList<Card>();
         listCardsFlush.add(new Card(3, "ca"));
