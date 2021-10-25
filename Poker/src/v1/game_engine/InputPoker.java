@@ -9,15 +9,24 @@ import v1.game_class.Card;
 import v1.game_class.Game;
 import v1.game_class.Hand;
 
-//this class manage the input of cards and init the game
+
+/**
+ * This class manage the input of cards
+ */
 public class InputPoker {
 	int valueOfTheCard = 0;
 	int colorOfTheCard = 1;
 	PrintPoker printer = new PrintPoker();
 
+	/**
+	 * Constructor of InputPoker
+	 */
 	public InputPoker() {
 	}
 
+	/**
+	 * @return ArrayList<Card>, Return a list of card sort
+	 */
 	public ArrayList<Card> promptCard() {
 		System.out.println("");
 		boolean listOfCardIsValid = false;
@@ -36,11 +45,16 @@ public class InputPoker {
 		return listCard;
 	}
 
+	/**
+	 * @param line, Contain a description of the list of card, exemple : 2ca 10ca
+	 *              Aca 2pi 5co
+	 * @return a optional list of card base on the line check if the line contain 5
+	 *         cards nicely written
+	 */
 	public Optional<ArrayList<Card>> genListCard(String line) {
 		ArrayList<Card> allCard = new ArrayList<Card>();
-
-		// contient la ligne ou l'on a décrit les cartes
 		String[] promptValue = line.split(" ");
+		
 		for (int i = 0; i < promptValue.length; i++) {
 			Optional<Card> potentialCard = initCard(promptValue[i]);
 			if (potentialCard.isPresent())
@@ -53,6 +67,9 @@ public class InputPoker {
 		return Optional.of(allCard);
 	}
 
+	/**
+	 * @return a line write by the user
+	 */
 	@SuppressWarnings("resource")
 	private String prompt() {
 		Scanner myObj = new Scanner(System.in);
@@ -60,6 +77,10 @@ public class InputPoker {
 		return myObj.nextLine();
 	}
 
+	/**
+	 * @param allCard, List of cards
+	 * @return True if the list of cards contain 2 same cards
+	 */
 	private boolean twoSameCardPresent(ArrayList<Card> allCard) {
 		for (int i = 0; i < allCard.size(); i++) {
 			Card card1 = allCard.get(i);
@@ -73,21 +94,27 @@ public class InputPoker {
 		return false;
 	}
 
+	/**
+	 * @param cardDescription, The description of a card like: "5ca" or "Rtr"
+	 * @return A optional card, if the card is well written return the card else
+	 *         return a Optional.empty(). It's here too that we transform String
+	 *         value of Head into their int value
+	 */
 	private Optional<Card> initCard(String cardDescription) {
 		String value;
 		String color;
 		int valueOfCard = -1;
 		boolean integerOrNot1;
-		if (cardDescription.length() == 4) {// only one option is value = 10ca for exemple
-			value = cardDescription.substring(0, 2); // value 10
-			color = cardDescription.substring(2); // color ca
-		} else if (cardDescription.length() == 3) { // 7ca for exemple
-			value = cardDescription.substring(0, 1); // value 7
-			color = cardDescription.substring(1); // color ca
+		if (cardDescription.length() == 4) {
+			value = cardDescription.substring(0, 2);
+			color = cardDescription.substring(2);
+		} else if (cardDescription.length() == 3) {
+			value = cardDescription.substring(0, 1); 
+			color = cardDescription.substring(1);
 		} else
 			return Optional.empty();
 
-		integerOrNot1 = value.matches("-?\\d+"); // check si c'est une chaine de caractère
+		integerOrNot1 = value.matches("-?\\d+"); 
 
 		if (integerOrNot1 || (valueOfCard = isHead(value)) != -1) {
 			if (valueOfCard == -1)
@@ -100,6 +127,10 @@ public class InputPoker {
 
 	}
 
+	/**
+	 * @param textCardValue, It's the String value of the card
+	 * @return The int value of head
+	 */
 	private int isHead(String textCardValue) {
 		switch (textCardValue) {
 		case "V":
