@@ -160,10 +160,10 @@ public class HandComparator {
 	private void equalizeSizeOfList(ArrayList<Card> listOne, ArrayList<Card> listeTwo) {
 		if (listOne.size() > listeTwo.size()) {
 			while (listOne.size() != listeTwo.size())
-				listeTwo.add(new Card(0)); // card with value equal to 0 to compute the winner by hauteur next
+				listeTwo.add(new Card(0, ""));
 		} else if (listeTwo.size() > listOne.size()) {
 			while (listOne.size() != listeTwo.size())
-				listOne.add(new Card(0));
+				listOne.add(new Card(0, ""));
 		}
 	}
 }
