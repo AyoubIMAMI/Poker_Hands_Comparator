@@ -19,4 +19,11 @@ public class Paire extends Combo {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		Paire otherPaire = (Paire) o;
+		if (this.comboValue == otherPaire.getComboValue()) return true;
+		return false;
+	}
 }

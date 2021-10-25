@@ -18,4 +18,11 @@ public class Hauteur extends Combo {
 		return null;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		Hauteur otherHauteur = (Hauteur) o;
+		if (this.comboValue == otherHauteur.getComboValue()) return true;
+		return false;
+	}
+
 }

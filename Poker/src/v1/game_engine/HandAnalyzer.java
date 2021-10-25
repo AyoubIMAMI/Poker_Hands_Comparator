@@ -84,6 +84,12 @@ public class HandAnalyzer {
 			return Optional.empty();
 	}
 
+	/**
+	 *
+	 * @param numberOfCards
+	 * @param valueOfCard
+	 * @return
+	 */
 	private Optional<Combo> findType1(int numberOfCards, int valueOfCard) {
         return switch (numberOfCards) {
             case 2 -> Optional.of(new Paire(removeFromNoUsedCards(findCards(valueOfCard))));

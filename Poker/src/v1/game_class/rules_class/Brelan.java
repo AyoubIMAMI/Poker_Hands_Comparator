@@ -19,4 +19,11 @@ public class Brelan extends Combo {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		Brelan otherBrelan = (Brelan) o;
+		if (this.comboValue == otherBrelan.getComboValue()) return true;
+		return false;
+	}
 }

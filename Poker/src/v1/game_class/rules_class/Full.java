@@ -20,6 +20,7 @@ public class Full extends Combo {
 	public String toString() {
 		return null;
 	}
+<<<<<<< HEAD
 	
    @Override
 	public boolean equals(Object o) {
@@ -31,5 +32,13 @@ public class Full extends Combo {
 
 		}
 		return false;		
+=======
+
+	@Override
+	public boolean equals(Object o) {
+		Full otherFull = (Full) o;
+		if (this.comboValue == otherFull.getComboValue() && this.additionalcombovalue == otherFull.getAdditionalcombovalue()) return true;
+		return false;
+>>>>>>> 9f8bb44339ba2827c8915fee1246079fab5ce330
 	}
 }
