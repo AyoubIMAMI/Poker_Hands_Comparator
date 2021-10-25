@@ -18,8 +18,11 @@ public class HandAnalyzerTest {
     private ArrayList<Card> listCardsPaire2;
     private ArrayList<Card> listCardsBrelan;
     private ArrayList<Card> listCardsSquare;
+    private ArrayList<Card> listCardsFull1;
+    private ArrayList<Card> listCardsFull2;
     private ArrayList<Card> listCardsQuinte;
-    private ArrayList<Card> listCardsDoublePaire;
+    private ArrayList<Card> listCardsDoublePaire1;
+    private ArrayList<Card> listCardsDoublePaire2;
     private ArrayList<Card> listCardsFlush;
     private ArrayList<Card> listCardsQuinteFlush;
     private ArrayList<Card> listCardsOptionalEmpty;
@@ -45,12 +48,33 @@ public class HandAnalyzerTest {
         listCardsSquare.add(new Card(9,"pi"));
         listCardsSquare.add(new Card(9,"pi"));
 
-        listCardsDoublePaire = new ArrayList<Card>();
-        listCardsDoublePaire.add(new Card(3, "tr"));
-        listCardsDoublePaire.add(new Card(3,"ca"));
-        listCardsDoublePaire.add(new Card(6,"ca"));
-        listCardsDoublePaire.add(new Card(6,"pi"));
-        listCardsDoublePaire.add(new Card(10,"ca"));
+        listCardsFull1 = new ArrayList<Card>();
+        listCardsFull1.add(new Card(5, "tr"));
+        listCardsFull1.add(new Card(5,"ca"));
+        listCardsFull1.add(new Card(5,"tr"));
+        listCardsFull1.add(new Card(8,"pi"));
+        listCardsFull1.add(new Card(8,"ca"));
+
+        listCardsFull2 = new ArrayList<Card>();
+        listCardsFull2.add(new Card(5, "tr"));
+        listCardsFull2.add(new Card(5,"ca"));
+        listCardsFull2.add(new Card(8,"tr"));
+        listCardsFull2.add(new Card(8,"pi"));
+        listCardsFull2.add(new Card(8,"ca"));
+
+        listCardsDoublePaire1 = new ArrayList<Card>();
+        listCardsDoublePaire1.add(new Card(3, "tr"));
+        listCardsDoublePaire1.add(new Card(3,"ca"));
+        listCardsDoublePaire1.add(new Card(6,"ca"));
+        listCardsDoublePaire1.add(new Card(6,"pi"));
+        listCardsDoublePaire1.add(new Card(10,"ca"));
+
+        listCardsDoublePaire2 = new ArrayList<Card>();
+        listCardsDoublePaire2.add(new Card(7, "tr"));
+        listCardsDoublePaire2.add(new Card(7,"ca"));
+        listCardsDoublePaire2.add(new Card(5,"ca"));
+        listCardsDoublePaire2.add(new Card(5,"pi"));
+        listCardsDoublePaire2.add(new Card(10,"ca"));
 
         listCardsQuinte = new ArrayList<Card>();
         listCardsQuinte.add(new Card(2, "tr"));
@@ -117,8 +141,47 @@ public class HandAnalyzerTest {
     }
 
     @Test
-    void getComboType2Test(){
-        HandAnalyzer analyze = new HandAnalyzer(this.listCardsDoublePaire);
+    void getComboType2Full1Test(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsFull1);
+        Combo comboBrelan = new Brelan(listCardsBrelan);
+        Combo comboPaire = new Paire(listCardsPaire);
+        Combo otherCombo = new Full(comboBrelan, comboPaire);
+        Optional<Combo> optCombo = analyze.getCombo();
+        Combo combo;
+        assertTrue(optCombo.isPresent());
+        combo = optCombo.get();
+        assertNotEquals(otherCombo,combo);
+    }
+
+    @Test
+    void getComboType2Full2Test(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsFull2);
+        Combo comboBrelan = new Brelan(listCardsBrelan);
+        Combo comboPaire = new Paire(listCardsPaire);
+        Combo otherCombo = new Full(comboBrelan, comboPaire);
+        Optional<Combo> optCombo = analyze.getCombo();
+        Combo combo;
+        assertTrue(optCombo.isPresent());
+        combo = optCombo.get();
+        assertNotEquals(otherCombo,combo);
+    }
+
+    @Test
+    void getComboType2DoublePaire1Test(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsDoublePaire1);
+        Combo comboPaire1 = new Paire(listCardsPaire);
+        Combo comboPaire2 = new Paire(listCardsPaire2);
+        Combo otherCombo = new DoublePaire(comboPaire1, comboPaire2);
+        Optional<Combo> optCombo = analyze.getCombo();
+        Combo combo;
+        assertTrue(optCombo.isPresent());
+        combo = optCombo.get();
+        assertNotEquals(otherCombo,combo);
+    }
+
+    @Test
+    void getComboType2DoublePaire2Test(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsDoublePaire2);
         Combo comboPaire1 = new Paire(listCardsPaire);
         Combo comboPaire2 = new Paire(listCardsPaire2);
         Combo otherCombo = new DoublePaire(comboPaire1, comboPaire2);
