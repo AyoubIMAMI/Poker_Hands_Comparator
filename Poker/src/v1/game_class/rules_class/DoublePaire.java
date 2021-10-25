@@ -17,6 +17,12 @@ public class DoublePaire extends Combo {
 		this.additionalcombovalue = paire2.getComboValue();
 		this.type = 2;
 	}
+	@Override
+	public boolean equals(Object o) {
+		DoublePaire otherDoublePaire = (DoublePaire) o;
+		if (this.comboValue == otherDoublePaire.getComboValue() && this.additionalcombovalue == otherDoublePaire.getAdditionalcombovalue()) return true;
+		return false;
+	}
 
 
 
