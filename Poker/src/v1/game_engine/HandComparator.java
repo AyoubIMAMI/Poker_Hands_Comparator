@@ -126,7 +126,7 @@ public class HandComparator {
 	 * 
 	 * @param hand2
 	 * @param hand1
-	 * @return The hand which win against the other with only their the highest card
+	 * @return The hand which win against the other with only their the highest card.
 	 */
 	private Optional<Hand> whoWhinByHauteur(Hand hand1, Hand hand2) {
 		ArrayList<Card> allNoUsedCardOfPlayer1 = hand1.getNoUsedCards();
@@ -152,7 +152,7 @@ public class HandComparator {
 
 	/**
 	 * This method take two list of cards and add card with value 0 in order to
-	 * equalize the size of the two list
+	 * equalize the size of the two list.
 	 * 
 	 * @param listOne
 	 * @param listeTwo

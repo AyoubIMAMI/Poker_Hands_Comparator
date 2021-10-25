@@ -105,9 +105,9 @@ public class HandAnalyzer {
  
 	private Optional<Combo> findType2(ArrayList<Combo> listeCombo) {
 		if (listeCombo.size() == 2) {
-			if (listeCombo.get(0).getName() == "Brelan") {
+			if (listeCombo.get(0).getName().equals("Brelan")) {
 				return (Optional.of(new Full(listeCombo.get(0), listeCombo.get(1))));
-			} else if (listeCombo.get(1).getName() == "Brelan") {
+			} else if (listeCombo.get(1).getName().equals("Brelan")) {
 				return (Optional.of(new Full(listeCombo.get(1), listeCombo.get(0))));
 			} else {
 				if (listeCombo.get(0).getComboValue() > listeCombo.get(1).getComboValue()) {
