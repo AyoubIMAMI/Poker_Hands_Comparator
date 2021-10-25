@@ -4,8 +4,16 @@ import v1.game_class.Card;
 
 import java.util.ArrayList;
 
+/**
+ * A Pair is composed of 2 cards having the same value.
+ */
+
 public class Paire extends Combo {
 
+	/**
+	 * Creates a Pair.
+	 * @param paire List of 2 cards having the same value.
+	 */
 	public Paire(ArrayList<Card> paire) {
 		this.name = "La Paire";
 		this.priorityValue = 1;

@@ -4,8 +4,16 @@ import v1.game_class.Card;
 
 import java.util.ArrayList;
 
+/**
+ * A Square is composed of 4 cards having the same value.
+ */
+
 public class Square extends Combo {
 
+	/**
+	 * Creates a Square.
+	 * @param square List of 4 cards having the same value.
+	 */
 	public Square(ArrayList<Card> square) {
 		this.name = "Square";
 		this.priorityValue = 7;

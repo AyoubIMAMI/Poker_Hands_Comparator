@@ -4,8 +4,17 @@ import v1.game_class.Card;
 
 import java.util.ArrayList;
 
+/**
+ * A Double pair is composed of 2 pairs.
+ */
+
 public class DoublePaire extends Combo {
 
+	/**
+	 * Creates a double pair.
+	 * @param paire1 The first pair.
+	 * @param paire2 The second pair.
+	 */
 	public DoublePaire(Combo paire1, Combo paire2) {
 		this.name = "DoublePaire";
 		this.priorityValue = 2;

@@ -4,8 +4,16 @@ import v1.game_class.Card;
 
 import java.util.ArrayList;
 
+/**
+ * A Quinte is composed of a sequence of 5 cards without having the same color.
+ */
+
 public class Quinte extends Combo {
 
+    /**
+     * Creates a Quinte.
+     * @param quinte List of a sequence of 5 cards without having the same color.
+     */
     public Quinte(ArrayList<Card> quinte) {
         this.name = "Quinte";
         this.priorityValue = 4;

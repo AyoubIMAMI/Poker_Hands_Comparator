@@ -4,8 +4,16 @@ import v1.game_class.Card;
 
 import java.util.ArrayList;
 
+/**
+ * A Quinte Flush is composed of 5 cards respecting the rules of Quinte and Flush.
+ */
+
 public class QuinteFlush extends Combo {
 
+    /**
+     * Creates a Quinte Flush.
+     * @param quinteFlush List of 5 cards respecting the rules of Quinte and Flush.
+     */
     public QuinteFlush(ArrayList<Card> quinteFlush) {
         this.name = "Quinte Flush";
         this.priorityValue = 8;

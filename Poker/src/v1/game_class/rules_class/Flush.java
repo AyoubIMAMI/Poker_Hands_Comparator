@@ -5,8 +5,16 @@ import v1.game_class.Hand;
 
 import java.util.ArrayList;
 
+/**
+ * A Flush is composed of 5 cards having the same color without sequence.
+ */
+
 public class Flush extends Combo {
 
+    /**
+     * Creates a Flush.
+     * @param flush List of 5 cards having the same color without sequence.
+     */
     public Flush(ArrayList<Card> flush) {
         this.name = "Flush";
         this.priorityValue = 5;
