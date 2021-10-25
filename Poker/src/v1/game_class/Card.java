@@ -2,6 +2,10 @@ package v1.game_class;
 
 /**
  * A Card has a value and a color.
+ * 
+ * @author KARRAKCHOU Mourad
+ * @author IMAMI Ayoub
+ * @author LE BIHAN  Leo
  */
 public class Card implements Comparable<Card> {
 	private final int value;
@@ -16,16 +20,25 @@ public class Card implements Comparable<Card> {
 		this.value = newValue;
 		this.color = newColor;
 	}
-
-
+	
+	
+	/**
+	 * @return The value of the card;
+	 */
 	public int getValue() {
 		return value;
 	}
 
+	/**
+	 * @return The color of the card;
+	 */
 	public String getColor() {
 		return color;
 	}
 
+	/**
+	 * @return The string representation of a Card
+	 */
 	public String toString() {
 		String headStringValue;
 		if((headStringValue=isHead()).equals("-1"))
@@ -34,7 +47,9 @@ public class Card implements Comparable<Card> {
 			return headStringValue + " " + this.color;
 	}
 
-	
+	/**
+	 * @return The string representation of a Head
+	 */
 	private String isHead() {
 		switch (this.value) {
 		case 11:
@@ -51,6 +66,11 @@ public class Card implements Comparable<Card> {
 	}
 	
 	
+	/**
+	 * Check if two Card are equals
+	 *@param Object obj
+	 *@return True if the two card are equals
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		Card c = (Card) obj;
@@ -58,6 +78,11 @@ public class Card implements Comparable<Card> {
 		return false;
 	}
 
+	/**
+	 * Compare the value of two cards, use this method to sort a ArrayList of cards
+	 * @param Object obj
+	 * @return A value negative, null or positif
+	 */
 	@Override
 	public int compareTo(Card card) {
 		// trions les cartes selon leur valeurs dans l'ordre croissant

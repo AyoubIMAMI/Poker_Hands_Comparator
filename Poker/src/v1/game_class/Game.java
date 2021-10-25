@@ -1,31 +1,52 @@
 package v1.game_class;
 
-import java.util.Objects;
-
-// A game is compose of 2 hands
+/**
+ * A Game is compose of 2 hands
+ * 
+ * @author KARRAKCHOU Mourad
+ * @author IMAMI Ayoub
+ * @author LE BIHAN  Leo
+ */
 public class Game {
 	private Hand hand1;
 	private Hand hand2;
 
-	// Constructor
+	/**
+	 * Create a Game
+	 * @param hand1
+	 * @param hand2
+	 */
 	public Game(Hand hand1, Hand hand2) {
 		this.hand1 = hand1;
 		this.hand2 = hand2;
 	}
 
-	// accesseur
+	/**
+	 * @return The first Hand of the Game.
+	 */
 	public Hand getHand1() {
 		return hand1;
 	}
 
+	/**
+	 * @return The second Hand of the Game.
+	 */
 	public Hand getHand2() {
 		return hand2;
 	}
-
+	
+	/**
+	 * @return The string representation of a Game
+	 */
 	public String toString() {
 		return hand1.toString() + " et " + hand2.toString();
 	}
 
+	/**
+	 * Check if two Game are equals
+	 *@param Object obj
+	 *@return True if the two Game are equals
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		Game otherGame = (Game) obj;
