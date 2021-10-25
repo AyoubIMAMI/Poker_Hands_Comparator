@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * A Quinte Flush is composed of 5 cards respecting the rules of Quinte and Flush.
  */
-
 public class QuinteFlush extends Combo {
 
     /**

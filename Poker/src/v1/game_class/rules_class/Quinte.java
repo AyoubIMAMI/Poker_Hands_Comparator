@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * A Quinte is composed of a sequence of 5 cards without having the same color.
  */
-
 public class Quinte extends Combo {
 
     /**

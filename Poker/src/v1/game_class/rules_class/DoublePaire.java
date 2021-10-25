@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * A Double pair is composed of 2 pairs.
  */
-
 public class DoublePaire extends Combo {
 
 	/**

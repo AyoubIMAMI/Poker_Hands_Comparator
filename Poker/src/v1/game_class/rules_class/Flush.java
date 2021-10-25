@@ -8,7 +8,6 @@ import java.util.ArrayList;
 /**
  * A Flush is composed of 5 cards having the same color without sequence.
  */
-
 public class Flush extends Combo {
 
     /**

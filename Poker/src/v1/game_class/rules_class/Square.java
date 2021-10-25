@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * A Square is composed of 4 cards having the same value.
  */
-
 public class Square extends Combo {
 
 	/**

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * A Brelan is composed of 3 cards having the same value.
  */
-
 public class Brelan extends Combo {
 
 	/**

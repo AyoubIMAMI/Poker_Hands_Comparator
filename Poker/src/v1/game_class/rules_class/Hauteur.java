@@ -5,7 +5,6 @@ import v1.game_class.Card;
 /**
  * The High consists in considering the highest card value of the hand.
  */
-
 public class Hauteur extends Combo {
 
 	/**
