@@ -1,6 +1,7 @@
 package v1.game_class.rules_class;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import v1.game_class.Card;
 
@@ -43,4 +44,7 @@ public abstract class Combo {
 	public int getAdditionalcombovalue() {
 		return additionalcombovalue;
 	}
+
+	@Override
+	public abstract boolean equals(Object o);
 }

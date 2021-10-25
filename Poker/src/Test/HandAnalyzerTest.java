@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import v1.game_class.Card;
 import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Flush;
+import v1.game_class.rules_class.Quinte;
 import v1.game_engine.HandAnalyzer;
 
 import java.util.ArrayList;
@@ -58,7 +59,28 @@ public class HandAnalyzerTest {
     @Test
     void findColorTest() {
         Optional<Combo> color = Optional.of(new Flush(this.listCardsFlush));
-        assertEquals(color, flushHand.findColor());
+        assertTrue(flushHand.findColor().isPresent());
+        for (int i = 0; i < listCardsFlush.size(); i++) {
+            assertEquals(color.get(), flushHand.findColor().get().getComboColor());
+        }
+    }
+
+    @Test
+    void getComboTest(){
+        ArrayList <Card>listCardp2 = new ArrayList<>();
+        listCardp2.add(new Card(2, "tr"));
+        listCardp2.add(new Card(3,"ca"));
+        listCardp2.add(new Card(4,"ca"));
+        listCardp2.add(new Card(5,"ca"));
+        listCardp2.add(new Card(6,"ca"));
+        HandAnalyzer analyze = new HandAnalyzer(listCardp2);
+        Combo type3Combo = new Quinte(listCardp2);
+
+        Optional<Combo> optCombo1 = analyze.getCombo();
+        Combo combo1;
+        assertTrue(optCombo1.isPresent());
+        combo1 = optCombo1.get();
+        assertEquals(combo1,type3Combo);
     }
 
 }
