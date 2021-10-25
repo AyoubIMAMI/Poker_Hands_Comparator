@@ -16,6 +16,8 @@ public class HandAnalyzerTest {
     //Variables
     private ArrayList<Card> listCardsPaire;
     private ArrayList<Card> listCardsPaire2;
+    private ArrayList<Card> listCardsBrelan;
+    private ArrayList<Card> listCardsSquare;
     private ArrayList<Card> listCardsQuinte;
     private ArrayList<Card> listCardsDoublePaire;
     private ArrayList<Card> listCardsFlush;
@@ -31,6 +33,17 @@ public class HandAnalyzerTest {
         listCardsPaire2 = new ArrayList<Card>();
         listCardsPaire2.add(new Card(7, "tr"));
         listCardsPaire2.add(new Card(7, "ca"));
+
+        listCardsBrelan = new ArrayList<Card>();
+        listCardsBrelan.add(new Card(7, "tr"));
+        listCardsBrelan.add(new Card(7,"ca"));
+        listCardsBrelan.add(new Card(7,"pi"));
+
+        listCardsSquare = new ArrayList<Card>();
+        listCardsSquare.add(new Card(9, "tr"));
+        listCardsSquare.add(new Card(9,"ca"));
+        listCardsSquare.add(new Card(9,"pi"));
+        listCardsSquare.add(new Card(9,"pi"));
 
         listCardsDoublePaire = new ArrayList<Card>();
         listCardsDoublePaire.add(new Card(3, "tr"));
@@ -71,9 +84,31 @@ public class HandAnalyzerTest {
 
 
     @Test
-    void getComboType1Test(){
+    void getComboType1PaireTest(){
         HandAnalyzer analyze = new HandAnalyzer(this.listCardsPaire);
         Combo otherCombo = new Paire(listCardsPaire);
+        Optional<Combo> optCombo = analyze.getCombo();
+        Combo combo;
+        assertTrue(optCombo.isPresent());
+        combo = optCombo.get();
+        assertEquals(otherCombo,combo);
+    }
+
+    @Test
+    void getComboType1BrelanTest(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsBrelan);
+        Combo otherCombo = new Brelan(listCardsBrelan);
+        Optional<Combo> optCombo = analyze.getCombo();
+        Combo combo;
+        assertTrue(optCombo.isPresent());
+        combo = optCombo.get();
+        assertEquals(otherCombo,combo);
+    }
+
+    @Test
+    void getComboType1SquareTest(){
+        HandAnalyzer analyze = new HandAnalyzer(this.listCardsSquare);
+        Combo otherCombo = new Square(listCardsSquare);
         Optional<Combo> optCombo = analyze.getCombo();
         Combo combo;
         assertTrue(optCombo.isPresent());
