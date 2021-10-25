@@ -61,7 +61,7 @@ public class HandComparator {
 		else if (combo2.isPresent() && combo1.isEmpty())
 			return Optional.of(secondHand);
 		else
-			return Optional.empty();
+			return Optional.empty(); 
 	}
 
 	private Optional<Hand> whoWhinByPriorityCombo(Combo combo1, Combo combo2) {
