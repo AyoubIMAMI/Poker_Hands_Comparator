@@ -102,8 +102,8 @@ public class HandComparator {
 	}
 
 	/**
-	 * Two same combo like (two Pear) can be distinguish with he value of the combo.
-	 * For example, one Pear of 2 versus an other Pear of 4, it's the Pear of 4
+	 * Two same combo like (two Pair) can be distinguish with he value of the combo.
+	 * For example, one Pair of 2 versus an other Pair of 4, it's the Pair of 4
 	 * which win
 	 * 
 	 * @param valueOfComboP1

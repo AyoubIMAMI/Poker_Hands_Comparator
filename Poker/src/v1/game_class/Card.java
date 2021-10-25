@@ -1,10 +1,14 @@
 package v1.game_class;
 
+/**
+ * A Card has a value and a color.
+ */
 public class Card implements Comparable<Card> {
 	private final int value;
 	private final String color; // Tr Ca Co Pi
 
 	/**
+	 * Create a Card
 	 * @param newValue
 	 * @param newColor
 	 */
