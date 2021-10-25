@@ -28,7 +28,6 @@ public class Controller {
 	public void startGame() {
 		handComp = new HandComparator(this.pGame.getHand1(), this.pGame.getHand2());
 		printP.win(handComp.getWinner());
-
 	}
 
 	

@@ -13,9 +13,12 @@ public class PrintPoker {
 
 	public PrintPoker() {}
 
-	// print the winner
-	// Affiche le Gagnant, comment il a gagné (exemple Hauteur) et avec quelle carte
-	// il a gagné (une seule ou plusieurs cartes)
+	
+	/**
+	 * @param winner
+	 * @return String, print a text that describe who whin and how
+	 * 
+	 */
 	public String win(Optional<Hand> winner) {
 		String result;
 		if (!(winner.isPresent())) {
@@ -40,16 +43,25 @@ public class PrintPoker {
 		return printError();
 	}
 
+	/**
+	 * @return String, print and return a error message when the winner has not been define
+	 */
 	private String printError() {
-		
-		return "Error no winner define";
+		String errorMsg = "Error no winner define";
+		System.out.println(errorMsg);
+		return errorMsg;
 	}
 
-	// present the game, the two players and theirs cards
+	/**
+	 * @return void, present the game, the two players and theirs cards
+	 */
 	public void start(Game game) {
 		System.out.println(game);
 	}
 
+	/**
+	 * @return void, present the rules
+	 */
 	public void printRules() {
 		System.out.println(
 				"Pour les valeurs au dessus de 10 (les tetes), on utilise: Valet = V, Dame = D, Rois = R et As = A");
@@ -57,6 +69,9 @@ public class PrintPoker {
 		System.out.println("Par exemple: 2ca 10ca Aca 2pi 5co");
 	}
 	
+	/**
+	 * @return void, print a error messages when the users fail to add cards
+	 */
 	public void printErrorInput() {
 		System.out.println(
 				"Attention, la valeur d'une carte est comprise entre 1 et 13, deux cartes identiques ne peuvent être présentes dans une main, et les couleurs disponibles sont ca = carreau, co = coeur, pi = pique, tr = trèfle!");
