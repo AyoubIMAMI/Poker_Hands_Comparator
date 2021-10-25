@@ -1,6 +1,7 @@
 package v1.game_class.rules_class;
 
 import v1.game_class.Card;
+import v1.game_class.Hand;
 
 import java.util.ArrayList;
 
@@ -20,4 +21,12 @@ public class Flush extends Combo {
         return null;
     }
 
+    @Override
+	public boolean equals(Object obj) {
+    	Flush other = (Flush) obj;
+		for(int i = 0 ; i < this.cardOfCombo.size() ;i++) {
+			if(!this.cardOfCombo.get(i).equals(other.getCardOfCombo().get(i))) return false;
+		}
+		return true;
+	}
 }

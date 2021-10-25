@@ -20,4 +20,11 @@ public class Square extends Combo {
 		return null;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		Square other = (Square) o;
+		if(this.comboValue == other.getComboValue()) return true;
+		return false;
+	}
+
 }

@@ -81,6 +81,4 @@ class InputPokerTest {
 		OptionalListOfCard = inputPok.genListCard(line);
 		assertTrue(OptionalListOfCard.isEmpty());
 	}
-	
-
 }

@@ -4,6 +4,10 @@ public class Card implements Comparable<Card> {
 	private final int value;
 	private final String color; // Tr Ca Co Pi
 
+	/**
+	 * @param newValue
+	 * @param newColor
+	 */
 	public Card(int newValue, String newColor) {
 		this.value = newValue;
 		this.color = newColor;

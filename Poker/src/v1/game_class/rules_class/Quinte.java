@@ -19,5 +19,18 @@ public class Quinte extends Combo {
         // TODO Auto-generated method stub
         return null;
     }
+    
+    @Override
+	public boolean equals(Object o) {
+    	Quinte other = (Quinte) o;
+
+		if(this.comboColor == other.getComboColor()) {
+			for(int i = 0 ; i < this.cardOfCombo.size() ;i++)
+				if(!cardOfCombo.get(i).equals(other.getCardOfCombo().get(i))) return false;
+			return true;
+		}
+		return false;
+	}
+
 
 }

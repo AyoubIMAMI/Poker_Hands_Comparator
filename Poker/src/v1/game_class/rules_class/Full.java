@@ -20,4 +20,16 @@ public class Full extends Combo {
 	public String toString() {
 		return null;
 	}
+	
+   @Override
+	public boolean equals(Object o) {
+	   Full other = (Full) o;
+	   if(this.comboColor == other.getComboColor()) {
+			Quinte currentQuinte = new Quinte(cardOfCombo);
+			Quinte otherQuinte = new Quinte(other.getCardOfCombo());
+			return currentQuinte.equals(otherQuinte);
+
+		}
+		return false;		
+	}
 }
