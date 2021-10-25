@@ -6,8 +6,6 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import v1.game_class.Card;
-import v1.game_class.Game;
-import v1.game_class.Hand;
 
 
 /**
