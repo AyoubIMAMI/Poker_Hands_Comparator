@@ -81,7 +81,8 @@ public class HandAnalyzerTest {
         listCardsQuinte.add(new Card(3,"ca"));
         listCardsQuinte.add(new Card(4,"ca"));
         listCardsQuinte.add(new Card(5,"ca"));
-        listCardsQuinte.add(new Card(14,"ca"));
+        listCardsQuinte.add(new Card(6,"ca"));
+
 
         listCardsFlush = new ArrayList<Card>();
         listCardsFlush.add(new Card(3, "ca"));
