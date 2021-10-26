@@ -1,8 +1,8 @@
-package v1.game_class.rules_class;
-
-import v1.game_class.Card;
+package game_class.rules_class;
 
 import java.util.ArrayList;
+
+import game_class.Card;
 
 /**
  * A Pair is composed of 2 cards having the same value.

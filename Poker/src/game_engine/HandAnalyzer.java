@@ -1,10 +1,10 @@
-package v1.game_engine;
-
-import v1.game_class.Card;
-import v1.game_class.rules_class.*;
+package game_engine;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
+import game_class.Card;
+import game_class.rules_class.*;
 
 /**
  * This class analyze a hand.

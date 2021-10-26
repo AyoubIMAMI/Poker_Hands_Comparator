@@ -1,11 +1,11 @@
-package v1.game_engine;
+package game_engine;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Scanner;
 
-import v1.game_class.Card;
+import game_class.Card;
 
 /**
  * This class manages the cards input

@@ -1,8 +1,8 @@
-package v1.game_class.rules_class;
-
-import v1.game_class.Card;
+package game_class.rules_class;
 
 import java.util.ArrayList;
+
+import game_class.Card;
 
 /**
  * A Quinte Flush is composed of 5 cards respecting the rules of Quinte and Flush.

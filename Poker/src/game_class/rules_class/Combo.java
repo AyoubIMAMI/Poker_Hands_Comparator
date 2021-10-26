@@ -1,7 +1,8 @@
-package v1.game_class.rules_class;
+package game_class.rules_class;
 
 import java.util.ArrayList;
-import v1.game_class.Card;
+
+import game_class.Card;
 
 /**
  * A Combo is composed of a list of cards, a priority value, a type and eventually a color and an additional value

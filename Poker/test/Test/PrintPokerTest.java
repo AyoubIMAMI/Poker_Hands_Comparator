@@ -9,12 +9,12 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import v1.game_class.Card;
-import v1.game_class.Game;
-import v1.game_class.Hand;
-import v1.game_class.rules_class.Brelan;
-import v1.game_class.rules_class.Hauteur;
-import v1.game_engine.PrintPoker;
+import game_class.Card;
+import game_class.Game;
+import game_class.Hand;
+import game_class.rules_class.Brelan;
+import game_class.rules_class.Hauteur;
+import game_engine.PrintPoker;
 
 class PrintPokerTest {
 	

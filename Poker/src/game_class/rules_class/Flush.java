@@ -1,9 +1,9 @@
-package v1.game_class.rules_class;
-
-import v1.game_class.Card;
-import v1.game_class.Hand;
+package game_class.rules_class;
 
 import java.util.ArrayList;
+
+import game_class.Card;
+import game_class.Hand;
 
 /**
  * A Flush is composed of 5 cards having the same color without sequence.

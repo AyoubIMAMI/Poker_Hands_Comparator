@@ -1,10 +1,10 @@
-package v1.game_class;
+package game_class;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.game_class.rules_class.Combo;
-import v1.game_engine.HandAnalyzer;
+import game_class.rules_class.Combo;
+import game_engine.HandAnalyzer;
 
 /**
  * A Hand is composed of 5 cards

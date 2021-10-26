@@ -1,8 +1,8 @@
-package v1.game_class.rules_class;
-
-import v1.game_class.Card;
+package game_class.rules_class;
 
 import java.util.ArrayList;
+
+import game_class.Card;
 
 /**
  * A Quinte is composed of a sequence of 5 cards without having the same color.

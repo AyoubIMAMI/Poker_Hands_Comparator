@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import v1.game_class.Card;
-import v1.game_class.rules_class.*;
-import v1.game_engine.HandAnalyzer;
+import game_class.Card;
+import game_class.rules_class.*;
+import game_engine.HandAnalyzer;
 
 import java.util.ArrayList;
 import java.util.Optional;

@@ -1,8 +1,8 @@
-package v1.game_class.rules_class;
-
-import v1.game_class.Card;
+package game_class.rules_class;
 
 import java.util.ArrayList;
+
+import game_class.Card;
 
 /**
  * A Square is composed of 4 cards having the same value.

@@ -1,12 +1,12 @@
-package v1.game_engine;
+package game_engine;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.game_class.Card;
-import v1.game_class.Hand;
-import v1.game_class.rules_class.Combo;
-import v1.game_class.rules_class.Hauteur;
+import game_class.Card;
+import game_class.Hand;
+import game_class.rules_class.Combo;
+import game_class.rules_class.Hauteur;
 
 /**
  * This class compares 2 hands.

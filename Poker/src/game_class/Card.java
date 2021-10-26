@@ -1,4 +1,4 @@
-package v1.game_class;
+package game_class;
 
 /**
  * A Card has a value and a color.

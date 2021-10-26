@@ -1,12 +1,12 @@
-package v1.game_engine;
+package game_engine;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.game_class.Card;
-import v1.game_class.Game;
-import v1.game_class.Hand;
-import v1.game_class.rules_class.Combo;
+import game_class.Card;
+import game_class.Game;
+import game_class.Hand;
+import game_class.rules_class.Combo;
 
 /**
  * This class manages the output messages

@@ -1,12 +1,11 @@
 package v1;
 
-import v1.game_class.Card;
-import v1.game_class.Hand;
-
-import v1.game_engine.Controller;
-import v1.game_engine.HandComparator;
-
 import java.util.ArrayList;
+
+import game_class.Card;
+import game_class.Hand;
+import game_engine.Controller;
+import game_engine.HandComparator;
 
 /**
  * Main class

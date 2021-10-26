@@ -2,9 +2,10 @@ package Test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import v1.game_class.Card;
-import v1.game_class.Hand;
-import v1.game_engine.HandComparator;
+
+import game_class.Card;
+import game_class.Hand;
+import game_engine.HandComparator;
 
 import java.util.ArrayList;
 import java.util.Optional;
