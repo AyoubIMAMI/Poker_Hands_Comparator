@@ -8,7 +8,13 @@ import v1.game_class.Game;
 import v1.game_class.Hand;
 import v1.game_class.rules_class.Combo;
 
-//the class that manage the output message
+/**
+ * This class manages the output messages
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
+ */
 public class PrintPoker {
 
 	public PrintPoker() {}
@@ -16,7 +22,7 @@ public class PrintPoker {
 	
 	/**
 	 * @param winner
-	 * @return String, print a text that describe who whin and how
+	 * @return String, print a text that describes who win and how
 	 * 
 	 */
 	public String win(Optional<Hand> winner) {
@@ -26,8 +32,7 @@ public class PrintPoker {
 			System.out.println(result);
 			return result;
 		} else {
-			Hand realWinner = winner.get();// winner est un optional<Hand> et .get() renvoie une Hand si optional
-											// contient une Hand
+			Hand realWinner = winner.get();
 			if (realWinner.getComboOfThePlayer().isPresent()) {
 				Combo realCombo = realWinner.getComboOfThePlayer().get();	
 				String winningMethode = realCombo.getName();
@@ -44,7 +49,7 @@ public class PrintPoker {
 	}
 
 	/**
-	 * @return String, print and return a error message when the winner has not been define
+	 * @return String, prints and returns an error message when the winner has not been define
 	 */
 	private String printError() {
 		String errorMsg = "Error no winner define";
@@ -53,14 +58,14 @@ public class PrintPoker {
 	}
 
 	/**
-	 * @return void, present the game, the two players and theirs cards
+	 * @return void, introduce the game, the two players and their cards
 	 */
 	public void start(Game game) {
 		System.out.println(game);
 	}
 
 	/**
-	 * @return void, present the rules
+	 * @return void, introduce the rules
 	 */
 	public void printRules() {
 		System.out.println(
@@ -70,7 +75,7 @@ public class PrintPoker {
 	}
 	
 	/**
-	 * @return void, print a error messages when the users fail to add cards
+	 * @return void, print an error message when the user fails to add cards
 	 */
 	public void printErrorInput() {
 		System.out.println(

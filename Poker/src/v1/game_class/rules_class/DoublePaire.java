@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 /**
  * A Double pair is composed of 2 pairs.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class DoublePaire extends Combo {
 

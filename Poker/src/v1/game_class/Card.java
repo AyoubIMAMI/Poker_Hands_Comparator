@@ -2,17 +2,17 @@ package v1.game_class;
 
 /**
  * A Card has a value and a color.
- * 
- * @author KARRAKCHOU Mourad
+ *
+ * @author LE BIHAN Léo
  * @author IMAMI Ayoub
- * @author LE BIHAN  Leo
+ * @author KARRAKCHOU Mourad
  */
 public class Card implements Comparable<Card> {
 	private final int value;
 	private final String color; // Tr Ca Co Pi
 
 	/**
-	 * Create a Card
+	 * Creates a Card
 	 * @param newValue
 	 * @param newColor
 	 */
@@ -23,14 +23,14 @@ public class Card implements Comparable<Card> {
 	
 	
 	/**
-	 * @return The value of the card;
+	 * @return The value of the card
 	 */
 	public int getValue() {
 		return value;
 	}
 
 	/**
-	 * @return The color of the card;
+	 * @return The color of the card
 	 */
 	public String getColor() {
 		return color;
@@ -67,9 +67,9 @@ public class Card implements Comparable<Card> {
 	
 	
 	/**
-	 * Check if two Card are equals
-	 *@param Object obj
-	 *@return True if the two card are equals
+	 * Checks if two Card are equal
+	 *@param \Object obj
+	 *@return True if the two cards are equal
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -79,9 +79,9 @@ public class Card implements Comparable<Card> {
 	}
 
 	/**
-	 * Compare the value of two cards, use this method to sort a ArrayList of cards
-	 * @param Object obj
-	 * @return A value negative, null or positif
+	 * Compares the value of two cards, uses this method to sort an ArrayList of cards
+	 * @param \Object obj
+	 * @return A value negative, null or positive
 	 */
 	@Override
 	public int compareTo(Card card) {

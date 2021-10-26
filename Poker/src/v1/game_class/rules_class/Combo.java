@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import v1.game_class.Card;
 
 /**
- * A Combo is compose of a list of card, a priority value, a type and eventually a color and a additional value  
- * 
- * @author KARRAKCHOU Mourad
+ * A Combo is composed of a list of cards, a priority value, a type and eventually a color and an additional value
+ *
+ * @author LE BIHAN Léo
  * @author IMAMI Ayoub
- * @author LE BIHAN  Leo
+ * @author KARRAKCHOU Mourad
  */
 public abstract class Combo {
 	String name;
@@ -21,7 +21,7 @@ public abstract class Combo {
 
 	
 	/**
-	 * @return The all cards of the Combo.
+	 * @return all the cards of the Combo.
 	 */
 	public ArrayList<Card> getCardOfCombo() {
 		return cardOfCombo;
@@ -56,7 +56,7 @@ public abstract class Combo {
 	}
 
 	/**
-	 * @return The all cards of the Combo.
+	 * @return all the cards of the Combo.
 	 */
 	public int getComboType() {
 		return type;
@@ -70,8 +70,8 @@ public abstract class Combo {
 	}
 
 	/**
-	 * Check if two Combo are equals
-	 *@param Object obj
+	 * Checks if two Combo are equal
+	 *@param \Object obj
 	 */
 	@Override
 	public abstract boolean equals(Object o);

@@ -9,8 +9,11 @@ import v1.game_class.rules_class.Combo;
 import v1.game_class.rules_class.Hauteur;
 
 /**
- * @author leolb
+ * This class compares 2 hands.
  *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class HandComparator {
 	private Hand player1;
@@ -48,7 +51,7 @@ public class HandComparator {
 	}
 
 	/**
-	 * As a parameter, we pass 2 hands and at least one of them has no combo. So the
+	 * As a parameter, we give 2 hands and at least one of them has no combo. So the
 	 * method determines which hand has no combo
 	 * 
 	 * @param firstHand
@@ -73,7 +76,7 @@ public class HandComparator {
 	 * 
 	 * @param combo1
 	 * @param combo2
-	 * @return The hand we win with the most powerful combo
+	 * @return The hand which wins with the most powerful combo
 	 */
 	private Optional<Hand> whoWhinByPriorityCombo(Combo combo1, Combo combo2) {
 		int priorityOfComboP1 = combo1.getPriorityValue();
@@ -102,13 +105,13 @@ public class HandComparator {
 	}
 
 	/**
-	 * Two same combo like (two Pair) can be distinguish with he value of the combo.
+	 * Two same combos like (two Pairs) can be distinguish with the value of the combo.
 	 * For example, one Pair of 2 versus an other Pair of 4, it's the Pair of 4
-	 * which win
+	 * which wins
 	 * 
 	 * @param valueOfComboP1
 	 * @param valueOfComboP2
-	 * @return The hand which win against the other with only the value of the combo
+	 * @return The hand which wins against the other with only the value of the combo
 	 */
 	private Optional<Hand> whoWhinByValueCombo(int valueOfComboP1, int valueOfComboP2) {
 		if (valueOfComboP1 > valueOfComboP2) {
@@ -120,13 +123,13 @@ public class HandComparator {
 	}
 
 	/**
-	 * When two player has the same combo with the same value, we can choose the
-	 * winner by compare their no used cards and the winner is the hand with the
+	 * When two players have the same combo with the same value, we can choose the
+	 * winner by comparing their no used cards and the winner is the hand with the
 	 * highest card.
 	 * 
 	 * @param hand2
 	 * @param hand1
-	 * @return The hand which win against the other with only their the highest card.
+	 * @return The hand which wins against the other with only their highest card.
 	 */
 	private Optional<Hand> whoWhinByHauteur(Hand hand1, Hand hand2) {
 		ArrayList<Card> allNoUsedCardOfPlayer1 = hand1.getNoUsedCards();
@@ -151,8 +154,8 @@ public class HandComparator {
 	}
 
 	/**
-	 * This method take two list of cards and add card with value 0 in order to
-	 * equalize the size of the two list.
+	 * This method take two lists of cards and add cards with the value 0 in order to
+	 * equalize the size of the two lists.
 	 * 
 	 * @param listOne
 	 * @param listeTwo

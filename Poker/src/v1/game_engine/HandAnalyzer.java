@@ -1,16 +1,18 @@
 package v1.game_engine;
 
+import v1.game_class.Card;
+import v1.game_class.rules_class.*;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
-import v1.game_class.Card;
-import v1.game_class.rules_class.*;
-import v1.game_class.rules_class.Combo;
-import v1.game_class.rules_class.Hauteur;
-import v1.game_class.rules_class.Paire;
-import v1.game_class.rules_class.Brelan;
-import v1.game_class.rules_class.Square;
-
+/**
+ * This class analyze a hand.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
+ */
 public class HandAnalyzer {
 	private ArrayList<Card> listCards;
 	private ArrayList<Card> listOfNoUsedCards = new ArrayList<Card>();
@@ -19,7 +21,7 @@ public class HandAnalyzer {
 	private int[] countCardArray = new int[nbrCarte];
 
 	/**
-	 * Create HandAnalyser with a list of card
+	 * Creates HandAnalyzer with a list of cards
 	 * 
 	 * @param cards
 	 */
@@ -30,11 +32,11 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * Generate the tab linked to list of cards: <br>
-	 * When we got a 2co we add one at index 2; <br>
-	 * When we got a 7pi we add one at index 7; <br>
-	 * When we got a Aca we add one at index 14; <br>
-	 * At the end we increment value of the array at index that match with the value of our cards. <br>
+	 * Generates the tab linked to the list of cards: <br>
+	 * When we get a 2co we add one at index 2; <br>
+	 * When we get a 7pi we add one at index 7; <br>
+	 * When we get a Aca we add one at index 14; <br>
+	 * At the end we increment the value of the array at the index that match with the value of our cards. <br>
 	 * For example : 3ca 3ca 7ca 2pi Aco, with this list of cards we got the tab: <br>
 	 * Value: | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 1 | 0 | 0 |  0 |  0 |  0 |  0 |  1 |<br>
 	 * Index: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |<br>
@@ -49,7 +51,7 @@ public class HandAnalyzer {
 
 	/**
 	 * @param tab
-	 * @return A tab of int fill only with 0
+	 * @return A tab of int filled only with 0
 	 */
 	private int[] fillTabWith0(int[] tab) {
 		for (int i = 0; i < tab.length; i++)
@@ -58,8 +60,8 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * Check in the list of cards of the HandAnalyser if the card with the wanted
-	 * value is present and return a list of all cards that has the wanted value.
+	 * Check if the card with the wanted value is present in the list of cards of the HandAnalyser
+	 * and returns the list of all cards that have the wanted value.
 	 * 
 	 * @param ValueofCard
 	 * @return A List of cards that match with the wanted card.
@@ -74,8 +76,8 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * This method remove update the list of no used card, when we use some cards
-	 * we need the remove her from this list.
+	 * This method updates the list of no used cards, when we use some cards
+	 * we need to remove them from this list.
 	 * @param cards
 	 * @return Cards that we put in parameter
 	 */
@@ -88,15 +90,15 @@ public class HandAnalyzer {
 
 	
 	/**
-	 * A hand could have 0, 1 or two combo.
+	 * A hand can have 0, 1 or two combos.
 	 * Pair, Three of a Kind, Straight etc. are all Combo.
-	 * We separate all the combo inside 3 category: type 1, type 2, type 3 <br>
+	 * We separate all the combos inside 3 categories: type 1, type 2, type 3 <br>
 	 * Type 1: Pair / Brelant / Square <br>
 	 * Type 2: Full / Double Pair <br>
 	 * Type 3: Quinte <br>
 	 * In addition, we have separated Highest and QuinteFlush from other because they are special. <br>
-	 * The method use type and the array that count cards, to determine all the combo that the hand has. <br>
-	 * @return The list of combo that has the hand.
+	 * The method uses the type and the array that counts cards, to determine all the combos that the hand has. <br>
+	 * @return The list of combos that the hand has.
 	 */
 	public Optional<Combo> getCombo() {
 
@@ -139,7 +141,7 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * Search for type 1 combo in the list of cards
+	 * Search for type 1 combo in the cards list
 	 * @param numberOfCards
 	 * @param valueOfCard
 	 * @return A combo with Paire / Brelan / Square or nothing.
@@ -178,7 +180,7 @@ public class HandAnalyzer {
 
 	
 	/**
-	 * Search for type 3 combo in the list of cards
+	 * Search for type 3 combo in the cards list
 	 * @return A combo with a Quinte or nothing
 	 */
 	private Optional<Combo> findType3() {
@@ -205,7 +207,7 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * Check all the card, and if all the cards has the same color (ca / co / pi / tr) return a Flush 
+	 * Check all the cards, and if all the cards has the same color (ca / co / pi / tr) return a Flush
 	 * @return a Flush or nothing
 	 */
 	private Optional<Combo> findColor() {
@@ -218,7 +220,7 @@ public class HandAnalyzer {
 	}
 
 	/**
-	 * @return the all the cards never used.
+	 * @return all the cards never used.
 	 */
 	public ArrayList<Card> getListOfNoUsedCards() {
 		return listOfNoUsedCards;

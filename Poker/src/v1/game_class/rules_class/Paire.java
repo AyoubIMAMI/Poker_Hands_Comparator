@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 /**
  * A Pair is composed of 2 cards having the same value.
+ *
+ * @author LE BIHAN Léo
+ * @author IMAMI Ayoub
+ * @author KARRAKCHOU Mourad
  */
 public class Paire extends Combo {
 
