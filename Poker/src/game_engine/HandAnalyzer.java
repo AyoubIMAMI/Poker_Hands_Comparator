@@ -191,8 +191,14 @@ public class HandAnalyzer {
 				if (countCardArray[compteur] != 1)
 					potentialAsQuinte = false;
 			}
-			if (potentialAsQuinte)
-				return Optional.of(new Quinte(this.listCards));
+			if (potentialAsQuinte){
+				//On créer une nouvelle liste de cartes avec cette fois L'As au début
+				ArrayList<Card> newlistCards=new ArrayList<>();
+				Card As=this.listCards.get(this.listCards.size() - 1);
+				newlistCards.add(As);
+				newlistCards.addAll(this.listCards);
+				newlistCards.remove(newlistCards.size()-1);
+				return Optional.of(new Quinte(newlistCards));}
 		}
 
 		index = 2;
